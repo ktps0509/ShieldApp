@@ -18,22 +18,22 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'info',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../info/Info.module').then(m => m.InfoPageModule)
-          }
-        ]
-      },
-      {
         path: 'tab3',
         children: [
           {
             path: '',
             loadChildren: () =>
               import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+          }
+        ]
+      },
+      {
+        path: 'library',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../library/library.module').then(m => m.LibraryPageModule)
           }
         ]
       },
