@@ -1,17 +1,32 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      วัคซีนของฉัน
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <br />
+  <ion-label class="Menu-Header">ประวัติทางการแพทย์</ion-label>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <ion-card class="cardHome">
+    <ion-card-header>
+
+      <ion-card-title>อัญชิสา โรจนยุกตานนท์</ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-card-subtitle>13 พฤศจิกายน 2540</ion-card-subtitle>
+      <ion-card-subtitle>22 ปีบริบูรณ์</ion-card-subtitle>
+      <ion-card-subtitle>O+ น้ำหนัก 45 ส่วนสูง 165</ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-label class="Menu-Header">ประวัติการฉีดวัคซีน</ion-label>
+
+
+
 </ion-content>
