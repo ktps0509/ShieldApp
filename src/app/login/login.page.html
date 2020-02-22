@@ -1,0 +1,38 @@
+<ion-content class="bg-image-h">
+
+  <ion-img src="../assets/img/Heading.png" style="width: 100%;"></ion-img>
+<!-- 
+  <div style="padding-top: 40%; padding-left: 5%; padding-right: 5%; position: sticky;">
+    <ion-label class="HeaderLogin">ลงชื่อเข้าใช้</ion-label>
+  </div> -->
+  <br/>
+
+  <div>
+    <ion-card style="height: 50px;">
+
+      <ion-input type="text" name="username" placeholder="Username"></ion-input>
+
+    </ion-card>
+
+    <br />
+
+    <ion-card style="height: 50px;">
+
+      <ion-input type="password" name="paasword" placeholder="Password"></ion-input>
+
+    </ion-card>
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col style="text-align: center;">
+          <ion-button color="danger" style="width: 60%;" [routerLink]="[ '/register' ]">สมัครสมาชิก</ion-button>
+        </ion-col>
+        <ion-col style="text-align: center;">
+          <ion-button color="danger" expand="block" style="width: 60%; " (click)=Login()>ล็อคอิน</ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -3,10 +3,8 @@
 
 /** Ionic CSS Variables **/
 :root {
-  // font Custom
 
-    --ion-font-family: "Roboto", sans-serif;
-
+  --ion-font-family: 'Roboto';
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -230,36 +228,36 @@
   ion-title.title-large {
     --color: white;
   }
-
-
-  @font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: normal;
-    src: url('../assets/font/Roboto/Roboto-Regular.ttf');
-  }
   
-  @font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: bold;
-    src: url('../assets/font/Roboto/Roboto-Bold.ttf');
-
-  }
+  // @font-face {
+  //   font-family: 'Roboto';
+  //   font-style: normal;
+  //   font-weight: normal;
+  //   src: url('../assets/font/Roboto/Roboto-Regular.ttf');
+  // }
   
-  @font-face {
-    font-family: "Roboto";
-    font-style: italic;
-    font-weight: normal;
-    src: url('../assets/font/Roboto/Roboto-Italic.ttf');
-  }
+  // @font-face {
+  //   font-family: 'Roboto';
+  //   font-style: normal;
+  //   font-weight: bold;
+  //   src: url('../assets/font/Roboto/Roboto-Bold.ttf');
   
-  @font-face {
-    font-family: "Roboto";
-    font-style: italic;
-    font-weight: bold;
-    src: url('../assets/font/Roboto/Roboto-BoldItalic.ttf');
+  // }
+  
+  // @font-face {
+  //   font-family: 'Roboto';
+  //   font-style: italic;
+  //   font-weight: normal;
+  //   src: url('../assets/font/Roboto/Roboto-Italic.ttf');
+  // }
+  
+  // @font-face {
+  //   font-family: 'Roboto';
+  //   font-style: italic;
+  //   font-weight: bold;
+  //   src: url('../assets/font/Roboto/Roboto-Bold.ttf');
+  
+  // }
 
-  }
 
 }

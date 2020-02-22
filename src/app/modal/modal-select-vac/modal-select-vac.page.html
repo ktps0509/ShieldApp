@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="start" name="arrow-round-back" style="font-size: 30px;" (click)="DimissModal()"></ion-icon>
+    <ion-title>เลือกวัคซีน</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="VacList">
+    <ion-list class="ion-margin-top">
+      <ion-item *ngFor="let item of VacList" (click)="ItemOptionClick(item)">
+        {{item.vacnameth}} 
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

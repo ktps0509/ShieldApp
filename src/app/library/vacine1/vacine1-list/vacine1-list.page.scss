@@ -1,3 +1,48 @@
 .card-list{
     background-color: #E1AD9F;
 }
+
+// ion-content {
+//     // --background: url('/src/assets/img/menu/data_bg.png') no-repeat 100% 100%;
+//     background: red !important;
+// }
+
+ion-content {
+    --background: url('/src/assets/img/menu/data_bg.png') no-repeat 100% 100%;
+}
+
+ion-list {
+    background-color: transparent;
+}
+
+ion-header {
+    height: 12%;
+    background-color: transparent;
+
+}
+
+.text-card{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.text-head-list{
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+// ion-toolbar{
+//     height: 100%;
+//     text-align: left;
+//     background-color: transparent;
+// }
+
+// ion-title{
+//     padding-left: 15px;
+//     padding-right: 15px;
+//     text-align: left;
+// }
+

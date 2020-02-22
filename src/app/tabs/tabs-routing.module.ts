@@ -4,7 +4,7 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
@@ -36,6 +36,10 @@ const routes: Routes = [
               import('../library/library.module').then(m => m.LibraryPageModule)
           }
         ]
+      },
+      {
+        path: 'calendar',
+        loadChildren: () => import('../calendar/calendar.module').then( m => m.CalendarPageModule)
       },
       {
         path: '',

@@ -1,17 +1,55 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar class="toolbarColor">
     <ion-title>
-      Tab 3
+      เพิ่มวัคซีน
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <form [formGroup]="VacForm" style="padding-top: 10px;">
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    <ion-label class="headerSelect">Vaccine</ion-label>
+    <!-- 
+    <ion-item (ionFocus)="ModalSelectVaccine()">
+      <ion-input type="text" formControlName="Vaccine"></ion-input>
+    </ion-item> -->
+
+    <ion-card (ionFocus)="ModalSelectVaccine()">
+      <ion-input type="text" formControlName="Vaccine"></ion-input>
+    </ion-card>
+
+    <ion-label class="headerSelect">Date <ion-icon name="calendar" style="color: white;"></ion-icon></ion-label>
+    
+
+    <ion-card>
+      <ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2024-12-09" value="2002-09-23T15:03:46.789"
+        formControlName="Date" class="lableControl">
+      </ion-datetime>
+    </ion-card>
+
+    <ion-label class="headerSelect">Hospital <ion-icon name="medkit" style="color: white;"></ion-icon></ion-label>
+    
+
+    <ion-card>
+      <ion-input type="text" formControlName="Hospital"></ion-input>
+    </ion-card>
+
+  </form>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col style="text-align: center;">
+      </ion-col>
+      <ion-col style="text-align: center;">
+        <ion-button color="danger" expand="block" style="width: 100%; ">Submit</ion-button>
+      </ion-col>
+      <ion-col style="text-align: center;">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
 </ion-content>

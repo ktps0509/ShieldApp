@@ -21,7 +21,9 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      setTimeout(() => {
+        this.splashScreen.hide(); // Request permissions after splashScreen.hide() after timeout delay equal to fade out timeout.
+      }, 3000);
     });
   }
 }

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  Endpiont_API: 'https://asia-east2-apitest-e8bec.cloudfunctions.net/vacapi'
+
 };
 
 /*

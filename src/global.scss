@@ -25,26 +25,54 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+ion-tab-button:focus-within{
+  color: #F26C6B
+}
 
+ion-tab-button:focus-visible{
+  color: #F26C6B
+}
+
+ion-tab-button:focus{
+  color: #F26C6B
+}
+
+
+
+
+ion-tab-button{
+  color: gray;
+}
 
 ion-title {
-    font-size: 50px;
+    font-size: 38px;
     font-weight: bold;
-  }
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: left;
+    color: gray;
+    
+}
 
-//   .Menu-Header {
-//     font-size: 18px;
-//     font-weight: bold;
-//     padding: 6%;
-//     color: gray;
-//   }
+  ion-header {
+    height: 12%;
+    background-color: transparent;
+
+}
+
+ion-toolbar{
+    height: 100%;
+    text-align: left;
+    background-color: transparent;
+}
 
   .Menu-Header {
     font-size: 18px;
     font-weight: bold;
     padding: 6%;
     color: gray;
-    font-family: "Roboto";
+    font-family: 'Roboto';
+
   }
   
 
@@ -52,18 +80,29 @@ ion-title {
     background-color: #E1AD9F;
   }
 
-  .cardHeaderInfo{
-    text-align: center;
-    width: 40%;
-    height: 15%;
-    background-image: url(../src/assets/img/0-3.jpg);
-    background-size: 100%;
-  }
 
   .cardMenu{
       width: 70%;
   }
 
-  .BG{
-    background-image: url(../src/assets/img/BG_data_Graphic.jpg);
-  }
+  .bg-image {
+    background-image: url(../src/assets/img/menu/data_bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.bg-image-h {
+  background-image: url(../src/assets/img/BG_graphic_signin.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.bg-image-l {
+  background-image: url(../src/assets/img/cardlist/0-3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
