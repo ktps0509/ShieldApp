@@ -15,9 +15,15 @@ const routes: Routes = [
         path: 'vacine1',
         loadChildren: () =>
           import('./vacine1/vacine1-routing.module').then(m => m.Vacine1PageRoutingModule)
+      },
+      {
+        path: 'vacine2',
+        loadChildren: () =>
+          import('./vaccine2/vaccine2-routing.module').then(m => m.Vaccine2RoutingModule)
       }
     ]
   },
+  
   // {
   //   path: 'library-list',
   //   loadChildren: () => import('./library-list/library-list.module').then( m => m.LibraryListPageModule)

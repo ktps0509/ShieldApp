@@ -61,4 +61,14 @@ export class VaccineServiceService {
       );
   }
 
+  LoginAPI(User): Observable<any> {
+    return this.http.post<any>(`${environment.Endpiont_API}/userlogin`, User)
+  }
+
+  Register(UserProfile): Observable<any> {
+    return this.http.post<any>(`${environment.Endpiont_API}/adduser`, UserProfile)
+  }
+
+
+
 }

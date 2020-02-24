@@ -18,21 +18,22 @@ export class LibraryPage implements OnInit {
 
   View(type: number){
     if(type == 1){
-      this.typeSend = "A"
+      this.typeSend = "A";
+      this.router.navigate(['../tabs/library/vacine1/list', { 'type': this.typeSend}]);
     }
-    if(type == 2){
-      this.typeSend = "B"
+    else if(type == 2){
+      this.typeSend = "B";
+      this.router.navigate(['../tabs/library/vacine2/list', { 'type': this.typeSend}]);
     }
-    if(type == 3){
+    else if(type == 3){
       this.typeSend = "C"
     }
-    if(type == 4){
+    else if(type == 4){
       this.typeSend = "D"
     }
-    if(type == 5){
+    else if(type == 5){
       this.typeSend = "E"
     }
-      this.router.navigate(['../tabs/library/vacine1/list', { 'type': this.typeSend}]);
   }
 
 }

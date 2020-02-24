@@ -7,10 +7,11 @@
   </div> -->
   <br/>
 
+  <form [formGroup]="LoginForm">
   <div>
     <ion-card style="height: 50px;">
 
-      <ion-input type="text" name="username" placeholder="Username"></ion-input>
+      <ion-input type="text" name="username" placeholder="Username" formControlName="Email"></ion-input>
 
     </ion-card>
 
@@ -18,7 +19,7 @@
 
     <ion-card style="height: 50px;">
 
-      <ion-input type="password" name="paasword" placeholder="Password"></ion-input>
+      <ion-input type="password" name="paasword" placeholder="Password" formControlName="Password"></ion-input>
 
     </ion-card>
 
@@ -29,10 +30,11 @@
           <ion-button color="danger" style="width: 60%;" [routerLink]="[ '/register' ]">สมัครสมาชิก</ion-button>
         </ion-col>
         <ion-col style="text-align: center;">
-          <ion-button color="danger" expand="block" style="width: 60%; " (click)=Login()>ล็อคอิน</ion-button>
+          <ion-button color="danger" expand="block" style="width: 60%; " (click)=Login() [disabled]="!LoginForm.valid">ล็อคอิน</ion-button>
         </ion-col>
 
       </ion-row>
     </ion-grid>
   </div>
+</form>
 </ion-content>

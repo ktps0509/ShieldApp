@@ -1,36 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Vac, VaccineServiceService } from 'src/app/service/vaccine-service.service';
-import { first } from 'rxjs/operators';
+import { VaccineServiceService } from 'src/app/service/vaccine-service.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-vacine1-list',
-  templateUrl: './vacine1-list.page.html',
-  styleUrls: ['./vacine1-list.page.scss'],
+  selector: 'app-vaccine2-list',
+  templateUrl: './vaccine2-list.page.html',
+  styleUrls: ['./vaccine2-list.page.scss'],
 })
-export class Vacine1ListPage implements OnInit {
-
+export class Vaccine2ListPage implements OnInit {
 
   constructor(private vacService: VaccineServiceService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,) { }
+    private router: Router) { }
+
 
   VacList: any[];
-  VacListAfter : any[];
-  VacType : string;
-  Type : any;
+  VacListAfter: any[];
+  VacType: string;
+  Type: any;
   ngOnInit() {
-
     this.activatedRoute.paramMap
     .subscribe((queryParams: ParamMap) => {
        this.Type = queryParams.get('type');
-       console.log(this.Type)
       //  this.FormLoad();
        this.FormLoadByType(this.Type)
    });
-    
-  
   }
 
   FormLoadByType(type: string){
@@ -40,17 +35,10 @@ export class Vacine1ListPage implements OnInit {
       data => {
         this.VacList = data.data;
         console.log(this.VacList)
+        this.VacType = this.VacList[0].vacage;
       },
       error => {
       });
 }
 
-View(typeSend: string){
-  console.log(typeSend, "ADSADSADADS")
-  this.router.navigate(['../tabs/library/vacine1/detail', { 'code': typeSend}]);
 }
-
-
-
-}
-

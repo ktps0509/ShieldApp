@@ -45,12 +45,13 @@ ion-tab-button{
 }
 
 ion-title {
-    font-size: 38px;
+    font-size: 34px;
     font-weight: bold;
     padding-left: 15px;
     padding-right: 15px;
     text-align: left;
     color: gray;
+    font-family: 'Prompt';
     
 }
 
@@ -67,11 +68,11 @@ ion-toolbar{
 }
 
   .Menu-Header {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     padding: 6%;
     color: gray;
-    font-family: 'Roboto';
+    font-family: 'Prompt';
 
   }
   
@@ -99,8 +100,28 @@ ion-toolbar{
   background-size: contain;
 }
 
+.bg-image-hs {
+  background-image: url(../src/assets/img/Profilebg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.bg-image-hs2 {
+  background-image: url(../src/assets/img/Accountbg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
 .bg-image-l {
   background-image: url(../src/assets/img/cardlist/0-3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-image-l2 {
+  background-image: url(../src/assets/img/cardlist/4-12.png);
   background-repeat: no-repeat;
   background-size: cover;
 }

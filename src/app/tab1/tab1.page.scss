@@ -6,10 +6,34 @@ ion-content ion-toolbar {
   font-size: 18px;
   font-weight: bold;
   color: white;
+  font-family: 'Bai Jamjuree';
+}
+
+.LabelHC{
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  font-family: 'Bai Jamjuree';
 }
 
 .LabelD{
+  font-size: 16px;
+  font-weight: lighter;
+  color: white;
+  font-family: 'Bai Jamjuree';
+}
+
+.LabelDC{
   font-size: 14px;
   font-weight: lighter;
   color: white;
+  font-family: 'Bai Jamjuree';
+}
+
+
+.cardHome1{
+  background-color: #E1AD9F;
+  width: 40%;
+  height: 40%;
+  
 }
