@@ -4,6 +4,7 @@ import { FormBuilder, Validators, Form, FormGroup } from '@angular/forms';
 import { LoginUser } from '../Model/login-user';
 import { VaccineServiceService } from '../service/vaccine-service.service';
 import { LoadingController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -16,12 +17,18 @@ export class LoginPage implements OnInit {
   loading : any;
 
   constructor(private router: Router,
+    private afAuth: AngularFireAuth,
     private loadingCtrl : LoadingController,
     private fb: FormBuilder,
     private VacService: VaccineServiceService) { }
 
   ngOnInit() {
     this.createform();
+    this.afAuth.authState.subscribe(data => {
+      if(data && data.email) {
+        this.router.navigate(['/tabs']);
+      }
+    })
   }
 
   async presentLoading(message: string) {
@@ -40,8 +47,16 @@ export class LoginPage implements OnInit {
     return this.VacService.LoginAPI(this.LoginUser).subscribe((data) =>{
       console.log(data);
       if(data.login == true){
-        this.loading.dismiss();
-        this.router.navigate(['/tabs']);
+          console.log(data.data[0],"asdasdasdas");
+          const result = this.afAuth.auth.signInWithEmailAndPassword(data.data[0].email, data.data[0].password)
+          if(result){
+            console.log(result);
+            this.loading.dismiss();
+            let us = data.data[0].username;
+            this.router.navigate(['/tabs/tab1']);
+          }
+          
+        
       }
       else{
         this.loading.dismiss();
