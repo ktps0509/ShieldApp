@@ -32,9 +32,7 @@ export class LoginPage implements OnInit {
   }
 
   async presentLoading(message: string) {
-    this.loading = await this.loadingCtrl.create({
-      message 
-    });
+    this.loading = await this.loadingCtrl.create();
     return this.loading.present();
   }
 
@@ -53,9 +51,12 @@ export class LoginPage implements OnInit {
             console.log(result);
             this.loading.dismiss();
             let us = data.data[0].username;
-            this.router.navigate(['/tabs/tab1']);
+            this.router.navigate(['/tabs']);
           }
-          
+          else{
+            this.loading.dismiss();
+            console.log(data.message)
+          }
         
       }
       else{
