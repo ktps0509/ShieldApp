@@ -17,6 +17,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore'
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import {FIREBASE_CONFIG} from './fireconfig';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {FIREBASE_CONFIG} from './fireconfig';
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
     AngularFireStorageModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
     
   providers: [

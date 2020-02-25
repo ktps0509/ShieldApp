@@ -20,6 +20,7 @@ export class RegisterPage implements OnInit {
   constructor(private fb: FormBuilder,
     private router: Router,
     private navCtrl: NavController,
+    
     ) { }
 
   ngOnInit() {

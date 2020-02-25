@@ -40,12 +40,10 @@ export class Register2Page implements OnInit {
       this.UserAccount = new ProfileUser()
       this.UserAccount.name = params.name;
       this.UserAccount.surname = params.surname;
-      // this.datepipe.transform(params.birth_date, 'yyyy/MM/dd')
       this.UserAccount.birth_date =  moment(params.birth_date).format('YYYY-MM-DD');
       this.UserAccount.blood_type = params.blood_type;
       this.UserAccount.drug_al = params.drug_al;
       this.UserAccount.sick = params.sick;
-      this.UserAccount.age = 22;
       this.UserAccount.height = params.height;
       this.UserAccount.weight = params.weight;
       this.UserAccount.age = params.age;

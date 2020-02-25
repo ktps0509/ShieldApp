@@ -1,5 +1,5 @@
 export class ProfileUser {
-    uesrname : string;
+    username : string;
     password : string;
     email: string;
     birth_date: string;

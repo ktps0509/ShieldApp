@@ -57,7 +57,6 @@ export class VaccineServiceService {
   }
 
   getVacByCode(code: string): Observable<any> {
-    console.log(code, "WEEEEEEEE")
     return this.http.get<any>(`${environment.Endpiont_API}/getvacbycode/${code}`)
       .pipe(
       );

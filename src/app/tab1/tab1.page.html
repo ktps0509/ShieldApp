@@ -15,14 +15,14 @@
   <ion-card class="cardHome">
     <ion-card-header>
 
-      <ion-label class="LabelH">อัญชิสา โรจนยุกตานนท์</ion-label>
+      <ion-label class="LabelH">{{ Name }} {{ Surname }}</ion-label>
 
     </ion-card-header>
 
     <ion-card-content>
-      <ion-label class="LabelD">13 พฤศจิกายน 2540</ion-label><br/>
-      <ion-label class="LabelD">22 ปีบริบูรณ์</ion-label><br/>
-      <ion-label class="LabelD">O+ น้ำหนัก 45 ส่วนสูง 165</ion-label>
+      <ion-label class="LabelD">{{ BirthDay }}</ion-label><br/>
+      <ion-label class="LabelD">{{ Age }} ปีบริบูรณ์</ion-label><br/>
+      <ion-label class="LabelD">{{ BloodGroup }} น้ำหนัก {{ Weight }} ส่วนสูง {{ Height }}</ion-label>
     </ion-card-content>
     <ion-card-content>
       <ion-button color="danger" expand="block" (click)=LogOut() style="width: 100%; ">Logout</ion-button>
