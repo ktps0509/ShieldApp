@@ -2,7 +2,7 @@ export class ProfileUser {
     uesrname : string;
     password : string;
     email: string;
-    birth_date: Date;
+    birth_date: string;
     age: number;
     weight: number;
     height: number;

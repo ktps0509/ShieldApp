@@ -3,13 +3,15 @@
   <ion-img src="../assets/img/Accountheading.png" style="width: 100%;"></ion-img>
 
     <br/>
+
+    <form [formGroup]="UserAccountForm">
     <div style="text-align: center;">
       <ion-label>
         อีเมล
       </ion-label>
       <br/>
       <ion-card>
-        <ion-input type="text" name="email"></ion-input>
+        <ion-input type="text" name="email" formControlName="Email"></ion-input>
       </ion-card>
     </div>
     <br/>
@@ -19,7 +21,7 @@
       </ion-label>
       <br/>
       <ion-card>
-        <ion-input type="password" name="password"></ion-input>
+        <ion-input type="password" name="password" formControlName="Password"></ion-input>
       </ion-card>
     </div>
     <div style="text-align: center;">
@@ -28,7 +30,7 @@
       </ion-label>
       <br/>
       <ion-card>
-        <ion-input type="password" name="confirmpassword"></ion-input>
+        <ion-input type="password" name="confirmpassword" formControlName="Password2"></ion-input>
       </ion-card>
     </div>
     
@@ -36,8 +38,9 @@
 
 
     <div style="text-align: center;">
-      <ion-button color="danger" (click)="Login()" style="font-family: 'Prompt'; font-size: 16px;">สมัครสมาชิก</ion-button>
+      <ion-button color="danger" (click)="Login()" style="font-family: 'Prompt'; font-size: 16px;" [disabled]="!UserAccountForm.valid">สมัครสมาชิก</ion-button>
     </div>
+  </form>
    
 
 </ion-content>
