@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore'
@@ -27,6 +28,7 @@ import {FIREBASE_CONFIG} from './fireconfig';
     AngularFirestoreModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
+    AngularFireStorageModule,
     HttpClientModule
   ],
     

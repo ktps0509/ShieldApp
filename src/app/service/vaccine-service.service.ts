@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map, take, catchError } from 'rxjs/operators'
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 
 export interface Vac {
@@ -38,7 +39,8 @@ export class VaccineServiceService {
   // private Vaccine: Observable<Vac[]>;
   // private VaccineCollection: AngularFirestoreCollection<Vac>;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,
+    private afStorage : AngularFireStorage,) { 
   }
 
   
@@ -67,6 +69,14 @@ export class VaccineServiceService {
 
   Register(UserProfile): Observable<any> {
     return this.http.post<any>(`${environment.Endpiont_API}/adduser`, UserProfile)
+  }
+
+  getVacImg(name: string) : any {
+    let test = this.afStorage.storage.ref(name)
+
+    let imgsrc = test.getDownloadURL()
+    console.log(imgsrc,"asdsadasdasdasd");
+    return imgsrc
   }
 
 

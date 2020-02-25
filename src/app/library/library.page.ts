@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { VaccineServiceService } from '../service/vaccine-service.service';
 
 
 @Component({
@@ -10,10 +12,20 @@ import { Router } from '@angular/router';
 export class LibraryPage implements OnInit {
 
   typeSend: string;
+  public imsrc: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private afStorage : AngularFireStorage,
+    private VacService: VaccineServiceService) { }
 
   ngOnInit() {
+
+    this.VacService.getVacImg("rose-blackpink-coachella-2019.jpg").then((url) => { this.imsrc = url });
+
+    // let imsc;
+    // const test = this.afStorage.storage.ref("rose-blackpink-coachella-2019.jpg")
+    // let imS =  test.getDownloadURL().then((url) => { this.imsrc = url })
+    console.log(this.imsrc);
   }
 
   View(type: number){

@@ -5,6 +5,9 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { VaccineServiceService } from '../service/vaccine-service.service';
 import { DatePipe } from '@angular/common';
 import * as moment from 'moment';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AlertController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register2',
@@ -19,8 +22,13 @@ export class Register2Page implements OnInit {
 
   Name: string
 
+  loading : any;
+
   constructor(private router: Router,
     private route: ActivatedRoute,
+    private afAuth: AngularFireAuth,
+    private loadingCtrl : LoadingController,
+    private alertCtrl: AlertController,
     private fb: FormBuilder,
     private VacService: VaccineServiceService,
     public datepipe: DatePipe) { }
@@ -45,19 +53,51 @@ export class Register2Page implements OnInit {
     });
   }
 
-  Login() {
+  async presentLoading() {
+    this.loading = await this.loadingCtrl.create();
+    return this.loading.present();
+  }
 
+  async presentAlert(al : string) {
+    let alert = await this.alertCtrl.create({
+      message : al,
+      buttons: ['Dismiss']
+    });
+    return alert.present();
+  }
+
+  async Login() {
+
+    if(this.UserAccountForm.controls.Password.value != this.UserAccountForm.controls.Password2.value){
+      this.presentAlert("Password not math")
+      return;
+    }
+    this.presentLoading();
+    
     this.UserAccount.email = this.UserAccountForm.controls.Email.value;
     this.UserAccount.password = this.UserAccountForm.controls.Password.value;
 
 
     console.log(this.UserAccount, "ALL")
-    this.VacService.Register(this.UserAccount).subscribe((data) => {
-      if (data) {
-        console.log(data);
-        this.router.navigate(['/tabs']);
+    try {
+      const res = await this.afAuth.auth.createUserWithEmailAndPassword(this.UserAccount.email, this.UserAccount.password)
+      console.log(res, "check sameeeeeeeeeeeeeeeee");
+
+      if (res.user) {
+        this.VacService.Register(this.UserAccount).subscribe((data) => {
+          if (data) {
+            console.log(data);
+            this.loading.dismiss();
+            this.router.navigate(['/tabs']);
+          }
+        })
       }
-    })
+    }
+    catch(error){
+      this.loading.dismiss();
+      this.presentAlert(error.message)
+      console.log(error);
+    }
   }
 
   createForm() {
@@ -66,8 +106,6 @@ export class Register2Page implements OnInit {
       Password: ['', [Validators.required, Validators.maxLength(6)]],
       Password2: ['', Validators.required],
     })
-
-
 
   }
 }

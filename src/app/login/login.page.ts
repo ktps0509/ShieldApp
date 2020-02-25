@@ -5,6 +5,7 @@ import { LoginUser } from '../Model/login-user';
 import { VaccineServiceService } from '../service/vaccine-service.service';
 import { LoadingController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginPage implements OnInit {
 
   constructor(private router: Router,
     private afAuth: AngularFireAuth,
+    private afStorage : AngularFireStorage,
     private loadingCtrl : LoadingController,
     private fb: FormBuilder,
     private VacService: VaccineServiceService) { }
@@ -29,17 +31,18 @@ export class LoginPage implements OnInit {
         this.router.navigate(['/tabs']);
       }
     })
+
   }
 
-  async presentLoading(message: string) {
+  async presentLoading() {
     this.loading = await this.loadingCtrl.create();
     return this.loading.present();
   }
 
   Login(){
-    this.presentLoading("Please Wait..");
+    this.presentLoading();
     this.LoginUser = Object.assign({}, this.LoginForm.value);
-    this.LoginUser.username = this.LoginForm.controls.Email.value;
+    this.LoginUser.email = this.LoginForm.controls.Email.value;
     this.LoginUser.password = this.LoginForm.controls.Password.value;
 
     return this.VacService.LoginAPI(this.LoginUser).subscribe((data) =>{
