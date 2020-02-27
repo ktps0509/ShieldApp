@@ -41,18 +41,18 @@ const routes: Routes = [
         path: 'calendar',
         loadChildren: () => import('../calendar/calendar.module').then( m => m.CalendarPageModule)
       },
-      {
-        path: '',
-        redirectTo: '/tabs/tab1',
-        pathMatch: 'full'
-      }
+      // {
+      //   path: '',
+      //   redirectTo: '/tabs/tab1',
+      //   pathMatch: 'full'
+      // }
     ]
   },
-  {
-    path: '',
-    redirectTo: '/tabs/tab1',
-    pathMatch: 'full'
-  }
+  // {
+  //   path: '',
+  //   redirectTo: '/tabs/tab1',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({

@@ -31,7 +31,8 @@ export class LoginPage implements OnInit {
     this.createform();
     this.afAuth.authState.subscribe(data => {
       if (data && data.email) {
-        this.router.navigate(['/tabs']);
+        console.log("เช็คละเข้า")
+        // this.router.navigate(['/tabs']);
       }
     })
   }
@@ -55,7 +56,7 @@ export class LoginPage implements OnInit {
         if (result) {
           this.loading.dismiss();
           this.storage.set('User', data.data[0]).then(async () => {
-            this.router.navigate(['/tabs']);
+            this.router.navigate(['/tabs/tab1']);
 
           });
         }

@@ -103,7 +103,7 @@ export class Register2Page implements OnInit {
           await this.VacService.LoginAPI(this.LoginUser).subscribe((data2) => {
             this.storage.set('User', data2.data[0]).then(() => {
               this.loading.dismiss();
-              this.router.navigate(['/tabs']);
+              this.router.navigate(['/tabs/tab1']);
 
             });
             console.log(data2, "DATA ON LOGIN");
