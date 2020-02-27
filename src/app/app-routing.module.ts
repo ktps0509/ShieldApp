@@ -27,13 +27,13 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule),
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToHome } 
   },
   {
     path: 'register2',
     loadChildren: () => import('./register2/register2.module').then( m => m.Register2PageModule),
-    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
-    
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToHome } 
   },
 
  
