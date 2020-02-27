@@ -7,6 +7,7 @@ import { Tab3Page } from './tab3.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { ModalSelectVacPage } from '../modal/modal-select-vac/modal-select-vac.page';
+import { ModalSelectTimevacPage } from '../modal/modal-select-timevac/modal-select-timevac.page';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { ModalSelectVacPage } from '../modal/modal-select-vac/modal-select-vac.p
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [Tab3Page, ModalSelectVacPage],
-  entryComponents : [ModalSelectVacPage]
+  declarations: [Tab3Page, ModalSelectVacPage, ModalSelectTimevacPage],
+  entryComponents : [ModalSelectVacPage, ModalSelectTimevacPage]
 })
 export class Tab3PageModule {}

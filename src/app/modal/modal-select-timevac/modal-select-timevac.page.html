@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="start" name="arrow-round-back" style="font-size: 30px;" (click)="DimissModal()"></ion-icon>
+    <ion-title>เลือกเข็ม</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="CountVac">
+    <ion-list class="ion-margin-top">
+      <ion-item *ngFor="let item of CountVac" (click)="ItemOptionClick(item)">
+        {{item.time}} 
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

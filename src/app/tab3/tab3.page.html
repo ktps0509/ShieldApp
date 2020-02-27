@@ -10,13 +10,15 @@
   <form [formGroup]="VacForm" style="padding-top: 10px;">
 
     <ion-label class="headerSelect">Vaccine</ion-label>
-    <!-- 
-    <ion-item (ionFocus)="ModalSelectVaccine()">
-      <ion-input type="text" formControlName="Vaccine"></ion-input>
-    </ion-item> -->
-
+    
     <ion-card (ionFocus)="ModalSelectVaccine()">
       <ion-input type="text" formControlName="Vaccine"></ion-input>
+    </ion-card>
+
+    <ion-label class="headerSelect">Vaccine</ion-label>
+    
+    <ion-card (ionFocus)="ModalSelectVaccineTime()">
+      <ion-input type="text" formControlName="Time"></ion-input>
     </ion-card>
 
     <ion-label class="headerSelect">Date <ion-icon name="calendar" style="color: white;"></ion-icon></ion-label>
@@ -42,7 +44,7 @@
       <ion-col style="text-align: center;">
       </ion-col>
       <ion-col style="text-align: center;">
-        <ion-button color="danger" expand="block" style="width: 100%; ">Submit</ion-button>
+        <ion-button color="danger" expand="block" style="width: 100%; " (click)="AddVaccine()">Submit</ion-button>
       </ion-col>
       <ion-col style="text-align: center;">
       </ion-col>
