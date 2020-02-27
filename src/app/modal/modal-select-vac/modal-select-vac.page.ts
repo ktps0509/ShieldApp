@@ -25,10 +25,12 @@ export class ModalSelectVacPage implements OnInit {
 
   InitailModal(){
     this.ModalCode = this.navParams.get('type');
+    console.log(this.ModalCode, "ModalMana")
     this.VacService.getVacLisyByType(this.ModalCode)
     .subscribe(
       data => {
         this.VacList = data.data
+        console.log(this.VacList)
       }
     )
   }
