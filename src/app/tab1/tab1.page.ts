@@ -55,6 +55,12 @@ export class Tab1Page {
     });
   }
 
+  ionViewDidEnter() {
+    document.addEventListener("backbutton",function(e) {
+      console.log("disable back button")
+    }, false);
+}
+
   async presentLoading() {
     this.loading = await this.loadingCtrl.create();
     return this.loading.present();

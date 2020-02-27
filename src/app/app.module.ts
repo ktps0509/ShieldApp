@@ -18,6 +18,7 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/fi
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import {FIREBASE_CONFIG} from './fireconfig';
 import { IonicStorageModule } from '@ionic/storage';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard'; 
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { IonicStorageModule } from '@ionic/storage';
     AngularFireAuthModule,
     AngularFireStorageModule,
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireAuthGuardModule
   ],
     
   providers: [

@@ -7,6 +7,7 @@ import { LoadingController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { StorageService } from '../service/storage.service';
+import { AlertController } from '@ionic/angular';
 import { async } from '@angular/core/testing';
 
 @Component({
@@ -23,23 +24,31 @@ export class LoginPage implements OnInit {
     private afAuth: AngularFireAuth,
     private afStorage: AngularFireStorage,
     private loadingCtrl: LoadingController,
+    private alertCtrl: AlertController,
     private fb: FormBuilder,
     private VacService: VaccineServiceService,
     private storage: StorageService) { }
 
   ngOnInit() {
     this.createform();
-    this.afAuth.authState.subscribe(data => {
-      if (data && data.email) {
-        console.log("เช็คละเข้า")
-        // this.router.navigate(['/tabs']);
-      }
-    })
+    // this.afAuth.authState.subscribe(data => {
+    //   if (data && data.email) {
+    //     console.log("เช็คละเข้า")
+    //     // this.router.navigate(['/tabs']);
+    //   }
+    // })
   }
 
   async presentLoading() {
     this.loading = await this.loadingCtrl.create();
     return this.loading.present();
+  }
+  async presentAlert(al : string) {
+    let alert = await this.alertCtrl.create({
+      message : al,
+      buttons: ['Dismiss']
+    });
+    return alert.present();
   }
 
   Login() {
@@ -55,19 +64,20 @@ export class LoginPage implements OnInit {
         const result = this.afAuth.auth.signInWithEmailAndPassword(data.data[0].email, data.data[0].password)
         if (result) {
           this.loading.dismiss();
-          this.storage.set('User', data.data[0]).then(async () => {
+          this.storage.set('User', data.data[0]).then(() => {
             this.router.navigate(['/tabs/tab1']);
-
           });
         }
         else {
           this.loading.dismiss();
           console.log(data.message)
+
         }
 
       }
       else {
         this.loading.dismiss();
+        this.presentAlert(data.message)
         console.log(data.message)
       }
     })
