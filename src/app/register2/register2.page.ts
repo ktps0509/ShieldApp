@@ -6,8 +6,11 @@ import { VaccineServiceService } from '../service/vaccine-service.service';
 import { DatePipe } from '@angular/common';
 import * as moment from 'moment';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { LoginUser } from '../Model/login-user';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
+import { StorageService } from '../service/storage.service';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-register2',
@@ -21,6 +24,7 @@ export class Register2Page implements OnInit {
   UserAccountForm: FormGroup;
 
   Name: string
+  LoginUser: LoginUser;
 
   loading : any;
 
@@ -31,7 +35,8 @@ export class Register2Page implements OnInit {
     private alertCtrl: AlertController,
     private fb: FormBuilder,
     private VacService: VaccineServiceService,
-    public datepipe: DatePipe) { }
+    public datepipe: DatePipe,
+    private storage: StorageService) { }
 
   ngOnInit() {
     this.createForm();
@@ -75,21 +80,38 @@ export class Register2Page implements OnInit {
     this.UserAccount.email = this.UserAccountForm.controls.Email.value;
     this.UserAccount.password = this.UserAccountForm.controls.Password.value;
 
+    this.LoginUser = new LoginUser();
+    this.LoginUser.email = this.UserAccount.email;
+    this.LoginUser.password = this.UserAccount.password;
 
-    console.log(this.UserAccount, "ALL")
+
+    console.log(this.LoginUser, "ALL")
     try {
       const res = await this.afAuth.auth.createUserWithEmailAndPassword(this.UserAccount.email, this.UserAccount.password)
       console.log(res, "check sameeeeeeeeeeeeeeeee");
 
+      let dt = "";
+
       if (res.user) {
-        this.VacService.Register(this.UserAccount).subscribe((data) => {
+        await this.VacService.Register(this.UserAccount).subscribe(async (data) => {
           if (data) {
-            console.log(data);
-            this.loading.dismiss();
-            this.router.navigate(['/tabs']);
+            dt = data.statuscode;
+            //console.log(data.data[0])
+            //this.router.navigate(['/tabs']);
           }
+          console.log(dt, "check DT")
+          await this.VacService.LoginAPI(this.LoginUser).subscribe((data2) => {
+            this.storage.set('User', data2.data[0]).then(() => {
+              this.loading.dismiss();
+              this.router.navigate(['/tabs']);
+
+            });
+            console.log(data2, "DATA ON LOGIN");
+          })
         })
+
       }
+
     }
     catch(error){
       this.loading.dismiss();
