@@ -141,7 +141,7 @@ export class Tab3Page {
     return this.loading.present();
   }
 
-  AddVaccine(){
+  async AddVaccine(){
     
     this.loadingService.show("Loading")
     this.VacAdd = Object.assign({});
@@ -154,11 +154,12 @@ export class Tab3Page {
     this.VacAdd.hospital = this.VacForm.controls.Hospital.value;
     this.VacAdd.vacdata = this.VacData;
 
-    this.VacService.AddVaccine(this.VacAdd).subscribe((data) => {
-      
+    await this.VacService.AddVaccine(this.VacAdd).subscribe((data) => {
+      this.presentAlert("Add Vaccine Success")
+      this.loadingService.hide();
     })
-    this.loadingService.hide();
-    this.presentAlert("Add Vaccine Success")
+    //this.loadingService.hide();
+    
   }
 
 }
