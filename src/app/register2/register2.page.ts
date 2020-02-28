@@ -11,6 +11,7 @@ import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { StorageService } from '../service/storage.service';
 import { async } from '@angular/core/testing';
+import { LoadingService } from '../service/loading.service';
 
 @Component({
   selector: 'app-register2',
@@ -36,9 +37,11 @@ export class Register2Page implements OnInit {
     private fb: FormBuilder,
     private VacService: VaccineServiceService,
     public datepipe: DatePipe,
-    private storage: StorageService) { }
+    private storage: StorageService,
+    private loadingService: LoadingService) { }
 
   ngOnInit() {
+    this.loadingService.hide();
     this.createForm();
     this.route.queryParams.subscribe(params => {
 
@@ -75,7 +78,7 @@ export class Register2Page implements OnInit {
       this.presentAlert("Password not math")
       return;
     }
-    this.presentLoading();
+    this.loadingService.show("Loading");
     
     this.UserAccount.email = this.UserAccountForm.controls.Email.value;
     this.UserAccount.password = this.UserAccountForm.controls.Password.value;
@@ -96,13 +99,11 @@ export class Register2Page implements OnInit {
         await this.VacService.Register(this.UserAccount).subscribe(async (data) => {
           if (data) {
             dt = data.statuscode;
-            //console.log(data.data[0])
-            //this.router.navigate(['/tabs']);
           }
           console.log(dt, "check DT")
           await this.VacService.LoginAPI(this.LoginUser).subscribe((data2) => {
             this.storage.set('User', data2.data[0]).then(() => {
-              this.loading.dismiss();
+              // this.loading.dismiss();
               this.router.navigate(['/tabs/tab1']);
 
             });

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, ActionSheetController, NavController } from '@ionic/angular';
+import { ModalController, ActionSheetController, NavController, AlertController, LoadingController } from '@ionic/angular';
 import { ModalSelectVacPage } from '../modal/modal-select-vac/modal-select-vac.page';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { VaccineServiceService } from '../service/vaccine-service.service';
@@ -25,9 +25,13 @@ export class Tab3Page {
   VacnameEn: string;
   UserEmail: string
 
+  loading : any;
+
   constructor(public modalController: ModalController,
     private fb: FormBuilder,
-    private VacService: VaccineServiceService) {}
+    private VacService: VaccineServiceService,
+    private alertCtrl: AlertController,
+    private loadingCtrl : LoadingController) {}
 
   ngOnInit() {
     this.VacService.GetCurrentUser().then(user => {
@@ -82,6 +86,14 @@ export class Tab3Page {
 
   }
 
+  async presentAlert(al : string) {
+    let alert = await this.alertCtrl.create({
+      message : al,
+      buttons: ['Dismiss']
+    });
+    return alert.present();
+  }
+
   async ModalSelectVaccine() {
 
     const modal = await this.modalController.create({
@@ -122,12 +134,13 @@ export class Tab3Page {
     return await modal.present();
   }
 
+  async presentLoading() {
+    this.loading = await this.loadingCtrl.create();
+    return this.loading.present();
+  }
+
   AddVaccine(){
-
-    
-
-
-    console.log(this.UserEmail, "auyaaa")
+    this.presentLoading();
     this.VacAdd = Object.assign({});
     this.VacAdd.email = this.UserEmail;
     this.VacAdd.vaccode = this.VacCode;
@@ -138,13 +151,12 @@ export class Tab3Page {
     this.VacAdd.hospital = this.VacForm.controls.Hospital.value;
     this.VacAdd.vacdata = this.VacData;
 
-
-    console.log(this.VacAdd, "Before Add")
-
     this.VacService.AddVaccine(this.VacAdd).subscribe((data) => {
       console.log(data, "ADD PAI LA")
       
     })
+    this.loading.dismiss();
+    this.presentAlert("Add Vaccine Success")
   }
 
 }

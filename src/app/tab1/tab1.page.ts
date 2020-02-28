@@ -7,6 +7,7 @@ import { LoadingController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ProfileUser } from '../Model/profile-user';
 import { StorageService } from '../service/storage.service';
+import { LoadingService } from '../service/loading.service';
 
 
 @Component({
@@ -35,27 +36,28 @@ export class Tab1Page {
     private afAuth: AngularFireAuth,
     private route: ActivatedRoute,
     private storage: StorageService,
-    private loadingCtrl: LoadingController ) { }
+    private loadingCtrl: LoadingController,
+    private VacService: VaccineServiceService,
+    private loadingService: LoadingService ) { }
 
   ngOnInit() {
-    this.storage.get('User').then(async (val) => {
-      console.log(val.name, "ABCA")
+    this.loadingService.hide();
+    this.VacService.GetCurrentUser().then((data) => {
       this.UserAccount = new ProfileUser();
-      this.Name = val.name;
-      this.Surname = val.surname;
-      this.BirthDay = val.birth_date
-      this.BloodGroup = val.blood_type
-      this.Medic = val.drug_al
-      this.Sick = val.sick
-      this.Height = val.height
-      this.Weight = val.weight
-      this.Age = val.age
-
-
-    });
+      this.Name = data.name;
+      this.Surname = data.surname;
+      this.BirthDay = data.birth_date
+      this.BloodGroup = data.blood_type
+      this.Medic = data.drug_al
+      this.Sick = data.sick
+      this.Height = data.height
+      this.Weight = data.weight
+      this.Age = data.age
+    })
   }
 
   ionViewDidEnter() {
+    console.log("มาไงเนี่ย")
     document.addEventListener("backbutton",function(e) {
       console.log("disable back button")
     }, false);
@@ -67,9 +69,11 @@ export class Tab1Page {
   }
 
   LogOut() {
+    this.loadingService.show("Sign Out");
     this.afAuth.auth.signOut();
     this.storage.remove('User');
     this.storage.clear();
+    this.loadingService.hide();
     this.router.navigate(['/login']);
   }
 

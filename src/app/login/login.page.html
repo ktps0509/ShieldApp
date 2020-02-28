@@ -27,7 +27,7 @@
     <ion-grid>
       <ion-row>
         <ion-col style="text-align: center;">
-          <ion-button color="danger" style="width: 60%;" [routerLink]="[ '/register' ]">สมัครสมาชิก</ion-button>
+          <ion-button color="danger" style="width: 60%;" (click)="Register()">สมัครสมาชิก</ion-button>
         </ion-col>
         <ion-col style="text-align: center;">
           <ion-button color="danger" expand="block" style="width: 60%; " (click)=Login() [disabled]="!LoginForm.valid">ล็อคอิน</ion-button>

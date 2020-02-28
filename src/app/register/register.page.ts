@@ -4,6 +4,7 @@ import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { ProfileUser } from '../Model/profile-user';
 import { NavController } from '@ionic/angular';
 import * as moment from 'moment';
+import { LoadingService } from '../service/loading.service';
 
 @Component({
   selector: 'app-register',
@@ -20,14 +21,17 @@ export class RegisterPage implements OnInit {
   constructor(private fb: FormBuilder,
     private router: Router,
     private navCtrl: NavController,
+    private loadingService : LoadingService
     
     ) { }
 
   ngOnInit() {
+    this.loadingService.hide();
     this.createForm()
   }
 
   Next(){
+    this.loadingService.show("Loading");
 
     this.age = moment().diff(this.UserProfile.controls.birth_date.value, 'year')
 

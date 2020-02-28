@@ -9,6 +9,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { StorageService } from '../service/storage.service';
 import { AlertController } from '@ionic/angular';
 import { async } from '@angular/core/testing';
+import { LoadingService } from '../service/loading.service';
 
 @Component({
   selector: 'app-login',
@@ -27,22 +28,24 @@ export class LoginPage implements OnInit {
     private alertCtrl: AlertController,
     private fb: FormBuilder,
     private VacService: VaccineServiceService,
-    private storage: StorageService) { }
+    private storage: StorageService,
+    private loadingService: LoadingService) { }
 
   ngOnInit() {
     this.createform();
-    // this.afAuth.authState.subscribe(data => {
-    //   if (data && data.email) {
-    //     console.log("เช็คละเข้า")
-    //     // this.router.navigate(['/tabs']);
-    //   }
-    // })
+  }
+
+
+  Register(){
+    this.loadingService.show("Loading");
+    this.router.navigate(['/register']);
   }
 
   async presentLoading() {
     this.loading = await this.loadingCtrl.create();
     return this.loading.present();
   }
+
   async presentAlert(al : string) {
     let alert = await this.alertCtrl.create({
       message : al,
