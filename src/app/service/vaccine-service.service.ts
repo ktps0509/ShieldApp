@@ -75,6 +75,10 @@ export class VaccineServiceService {
     return this.http.post<any>(`${environment.Endpiont_API}/addVacByUser`, Vac)
   }
 
+  GetHistoryVaccine(uid : string): Observable<any> {
+    return this.http.get<any>(`${environment.Endpiont_API}/gethistorybyid/${uid}`)
+  }
+
   getVacImg(name: string) : any {
     let test = this.afStorage.storage.ref(name)
 

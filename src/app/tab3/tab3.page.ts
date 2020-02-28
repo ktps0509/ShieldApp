@@ -6,6 +6,7 @@ import { VaccineServiceService } from '../service/vaccine-service.service';
 import { ModalSelectTimevacPage } from '../modal/modal-select-timevac/modal-select-timevac.page';
 import { Addvaccine } from '../Model/addvaccine';
 import * as moment from 'moment';
+import { LoadingService } from '../service/loading.service';
 
 
 @Component({
@@ -31,7 +32,8 @@ export class Tab3Page {
     private fb: FormBuilder,
     private VacService: VaccineServiceService,
     private alertCtrl: AlertController,
-    private loadingCtrl : LoadingController) {}
+    private loadingCtrl : LoadingController,
+    private loadingService : LoadingService) {}
 
   ngOnInit() {
     this.VacService.GetCurrentUser().then(user => {
@@ -140,7 +142,8 @@ export class Tab3Page {
   }
 
   AddVaccine(){
-    this.presentLoading();
+    
+    this.loadingService.show("Loading")
     this.VacAdd = Object.assign({});
     this.VacAdd.email = this.UserEmail;
     this.VacAdd.vaccode = this.VacCode;
@@ -152,10 +155,9 @@ export class Tab3Page {
     this.VacAdd.vacdata = this.VacData;
 
     this.VacService.AddVaccine(this.VacAdd).subscribe((data) => {
-      console.log(data, "ADD PAI LA")
       
     })
-    this.loading.dismiss();
+    this.loadingService.hide();
     this.presentAlert("Add Vaccine Success")
   }
 

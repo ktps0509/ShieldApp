@@ -19,18 +19,21 @@ export class Tab1Page {
   UserAccount: ProfileUser;
 
   Name: string;
-  Surname : string;
+  Surname: string;
 
-  BirthDay : string;
-  Age : number;
-  BloodGroup : string;
+  BirthDay: string;
+  Age: number;
+  BloodGroup: string;
   Sick: string;
   Medic: string;
-  Weight : number;
-  Height : number;
+  Weight: number;
+  Height: number;
+  UID: string;
+
+  VacArray: any;
 
 
-  loading : any;
+  loading: any;
 
   constructor(private router: Router,
     private afAuth: AngularFireAuth,
@@ -38,12 +41,12 @@ export class Tab1Page {
     private storage: StorageService,
     private loadingCtrl: LoadingController,
     private VacService: VaccineServiceService,
-    private loadingService: LoadingService ) { }
+    private loadingService: LoadingService) { }
 
   ngOnInit() {
     this.loadingService.hide();
     this.VacService.GetCurrentUser().then((data) => {
-      this.UserAccount = new ProfileUser();
+      this.UID = data.email;
       this.Name = data.name;
       this.Surname = data.surname;
       this.BirthDay = data.birth_date
@@ -53,15 +56,24 @@ export class Tab1Page {
       this.Height = data.height
       this.Weight = data.weight
       this.Age = data.age
+      this.GetVacHistory(this.UID);
     })
   }
 
   ionViewDidEnter() {
     console.log("มาไงเนี่ย")
-    document.addEventListener("backbutton",function(e) {
+    document.addEventListener("backbutton", function (e) {
       console.log("disable back button")
     }, false);
-}
+  }
+
+  GetVacHistory(uid) {
+    this.VacService.GetHistoryVaccine(uid).subscribe((data) => {
+      console.log(data.data, "VacHis")
+      this.VacArray = data.data
+    })
+
+  }
 
   async presentLoading() {
     this.loading = await this.loadingCtrl.create();
@@ -77,6 +89,6 @@ export class Tab1Page {
     this.router.navigate(['/login']);
   }
 
-  
+
 
 }
