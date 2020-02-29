@@ -8,3 +8,10 @@ export class Addvaccine {
     hospital: string;
     vacdata : any[];
 }
+
+export class IEvent {
+    allDay: boolean;
+    endTime: Date;
+    startTime: Date;
+    title: string;
+  }

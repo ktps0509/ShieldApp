@@ -35,7 +35,6 @@ const routes: Routes = [
     loadChildren: () => import('./register2/register2.module').then( m => m.Register2PageModule),
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToHome } 
   },
-
  
 ];
 @NgModule({

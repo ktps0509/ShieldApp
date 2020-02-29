@@ -1,23 +1,31 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>ปฎิทินนัดหมาย</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
-  <calendar 
-  [eventSource]="eventSource" 
-  [calendarMode]="calendar.mode" 
-  [currentDate]="calendar.currentDate"
-  (onEventSelected)="onEventSelected($event)"
-  (onTitleChanged)="onViewTitleChanged($event)"
-  (onTimeSelected)="onTimeSelected($event)" 
-  startHour="6"
-  endHour="20"
-  step="30"
-  startingDayWeek="1"
->
+  <div style="text-align: center;">
+    <ion-label class="TitleMonth"> {{ viewTitle }}</ion-label>
+
+  </div>
+
+  <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+    (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)" (onTimeSelected)="onTimeSelected($event)" step="30"
+    startingDayWeek="1" class="calendar">
   </calendar>
+
+  <ion-card style="height: 200px; background-color: pink;"   *ngIf="VacDetail">
+    <ion-label>{{ VacDetail.vacnameth }}</ion-label>
+    <br/>
+    <ion-label>{{ VacDetail.vacnameen }}</ion-label>
+    <br/>
+    <ion-label>{{ VacDetail.time }}</ion-label>
+    <br/>
+    <ion-label>{{ VacDetail.vacdate }}</ion-label>
+    <br/>
+    <ion-label>{{ VacDetail.hospital }}</ion-label>
+  </ion-card>
 
 </ion-content>

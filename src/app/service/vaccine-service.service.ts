@@ -79,6 +79,11 @@ export class VaccineServiceService {
     return this.http.get<any>(`${environment.Endpiont_API}/gethistorybyid/${uid}`)
   }
 
+  GetHistoryByDate(UserDate): Observable<any> {
+    return this.http.post<any>(`${environment.Endpiont_API}/gethisByDate`, UserDate)
+  }
+
+
   getVacImg(name: string) : any {
     let test = this.afStorage.storage.ref(name)
 

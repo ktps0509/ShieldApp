@@ -154,11 +154,11 @@ export class Tab3Page {
     this.VacAdd.hospital = this.VacForm.controls.Hospital.value;
     this.VacAdd.vacdata = this.VacData;
 
+    console.log(this.VacAdd, "ADD")
     await this.VacService.AddVaccine(this.VacAdd).subscribe((data) => {
       this.presentAlert("Add Vaccine Success")
       this.loadingService.hide();
     })
-    //this.loadingService.hide();
     
   }
 
