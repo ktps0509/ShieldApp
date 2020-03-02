@@ -7,6 +7,7 @@ import { ModalSelectTimevacPage } from '../modal/modal-select-timevac/modal-sele
 import { Addvaccine } from '../Model/addvaccine';
 import * as moment from 'moment';
 import { LoadingService } from '../service/loading.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -33,7 +34,8 @@ export class Tab3Page {
     private VacService: VaccineServiceService,
     private alertCtrl: AlertController,
     private loadingCtrl : LoadingController,
-    private loadingService : LoadingService) {}
+    private loadingService : LoadingService,
+    private router: Router) {}
 
   ngOnInit() {
     this.VacService.GetCurrentUser().then(user => {
@@ -156,7 +158,8 @@ export class Tab3Page {
 
     console.log(this.VacAdd, "ADD")
     await this.VacService.AddVaccine(this.VacAdd).subscribe((data) => {
-      this.presentAlert("Add Vaccine Success")
+      this.VacService.openSuccess('Add Success');
+      this.router.navigate(['/tabs/tab1']);
       this.loadingService.hide();
     })
     

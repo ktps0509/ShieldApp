@@ -112,6 +112,9 @@ export class CalendarPage {
   }
 
   onTimeSelected(ev) {
+
+    this.VacDetail = null;
+
     if(ev.events.length >= 1){
       let selected = new Date(ev.selectedTime);
       let DateConvert = moment(selected).format('YYYY-MM-DD');

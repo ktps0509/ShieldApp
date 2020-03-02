@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ProfileUser } from '../Model/profile-user';
 import { Storage } from '@ionic/storage';
+import { AlertController } from '@ionic/angular';
 
 
 export interface Vac {
@@ -43,7 +44,8 @@ export class VaccineServiceService {
 
   constructor(private http: HttpClient,
     private afStorage : AngularFireStorage,
-    private storage: Storage) { 
+    private storage: Storage,
+    private alertCtr: AlertController) { 
   }
 
   
@@ -117,6 +119,21 @@ export class VaccineServiceService {
    });
   }
 
+
+  async openSuccess(msg: string) {
+    const alert = await this.alertCtr.create({
+      header: 'Success!',
+      message: '' + msg,
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
 
 
 }

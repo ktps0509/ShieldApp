@@ -61,10 +61,7 @@ export class Tab1Page {
   }
 
   ionViewDidEnter() {
-    console.log("มาไงเนี่ย")
-    document.addEventListener("backbutton", function (e) {
-      console.log("disable back button")
-    }, false);
+    this.ngOnInit();
   }
 
   GetVacHistory(uid) {
