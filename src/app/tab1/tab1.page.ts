@@ -43,6 +43,12 @@ export class Tab1Page {
     private VacService: VaccineServiceService,
     private loadingService: LoadingService) { }
 
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
+
+  activeix = 0;
   ngOnInit() {
     this.loadingService.hide();
     this.VacService.GetCurrentUser().then((data) => {
@@ -59,6 +65,7 @@ export class Tab1Page {
       this.GetVacHistory(this.UID);
     })
   }
+
 
   ionViewDidEnter() {
     this.ngOnInit();

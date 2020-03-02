@@ -7,8 +7,14 @@
 }
 
 .LabelCard{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     font-family: 'Prompt';
     color: gray;
+}
+
+.cardEvent {
+    height: 120px; 
+    background: linear-gradient(180deg, #FF8474 50%, #ED6E64 50%); 
+    margin-top: 10%;
 }

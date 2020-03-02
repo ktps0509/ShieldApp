@@ -58,23 +58,22 @@ export class CalendarPage {
     private loadingService: LoadingService) { }
 
   ngOnInit() {
+    this.loadingService.show("Loading")
 
     this.VacService.GetCurrentUser().then((data) => {
       this.email = data.email;
       this.GetVacHistory(this.email)
     })
-
+    this.loadingService.hide();
   }
 
   async GetVacHistory(uid) {
     await this.VacService.GetHistoryVaccine(uid).subscribe((data) => {
-      console.log(data.data, "VacHis")
       this.VacArray = data.data
-      console.log(this.VacArray, "เวลาจะฉีดน้า")
     })
 
     setTimeout(() => {
-      this.addEvent() // Request permissions after splashScreen.hide() after timeout delay equal to fade out timeout.
+      this.addEvent()
     }, 3000);
     
   }

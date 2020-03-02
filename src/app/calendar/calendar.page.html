@@ -16,7 +16,7 @@
     (onTimeSelected)="onTimeSelected($event)" step="30" startingDayWeek="1" class="calendar">
   </calendar>
 
-  <ion-card style="height: 100px; background-color: pink;" *ngIf="VacDetail">
+  <ion-card class="cardEvent" *ngIf="VacDetail">
     <div style="padding-left: 20px;">
       <ion-grid>
         <ion-row>
@@ -24,10 +24,11 @@
             <br />
             <ion-label class="LabelCard">{{ VacDetail.vacnameth }} ({{ VacDetail.vacnameen }})</ion-label>
             <br />
+            <br />
             <ion-label class="LabelCard">{{ VacDetail.hospital }}</ion-label>
           </ion-col>
           <ion-col style="text-align: right;">
-            <ion-img src="../assets/img/vaccine/{{ VacDetail.vacnameen }}.png" style="height: 60px;"></ion-img>
+            <ion-img src="../assets/img/vaccine/{{ VacDetail.vacnameen }}.png" style="height: 80px;"></ion-img>
           </ion-col>
         </ion-row>
       </ion-grid>

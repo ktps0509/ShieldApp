@@ -3,7 +3,7 @@
     <ion-title>
       วัคซีนของฉัน
     </ion-title>
-    
+
   </ion-toolbar>
 </ion-header>
 
@@ -13,49 +13,72 @@
 
 
   <ion-card class="cardHome">
-    <ion-card-header>
+    <ion-row  style="padding-top: 30px;">
+      <ion-col>
+        <ion-card-header>
 
-      <ion-label class="LabelH">{{ Name }} {{ Surname }}</ion-label>
+          <ion-label class="LabelH">{{ Name }} {{ Surname }}</ion-label>
+    
+        </ion-card-header>
 
-    </ion-card-header>
+        <ion-card-content>
+          <ion-label class="LabelD">{{ BirthDay }}</ion-label><br />
+          <ion-label class="LabelD">{{ Age }} ปีบริบูรณ์</ion-label><br />
+          <ion-label class="LabelD">{{ BloodGroup }} น้ำหนัก {{ Weight }} ส่วนสูง {{ Height }}</ion-label>
+        </ion-card-content>
+      </ion-col>
 
-    <ion-card-content>
-      <ion-label class="LabelD">{{ BirthDay }}</ion-label><br/>
-      <ion-label class="LabelD">{{ Age }} ปีบริบูรณ์</ion-label><br/>
-      <ion-label class="LabelD">{{ BloodGroup }} น้ำหนัก {{ Weight }} ส่วนสูง {{ Height }}</ion-label>
-    </ion-card-content>
+      <ion-col>
+        <ion-img src="../assets/img/Shieldgraphic.png" style="height: 160px"></ion-img>
+      </ion-col>
+    </ion-row>
+   
+
+    
     <ion-card-content>
       <ion-button color="danger" expand="block" (click)=LogOut() style="width: 100%; ">Logout</ion-button>
     </ion-card-content>
+    
   </ion-card>
 
   <ion-label class="Menu-Header">ประวัติการฉีดวัคซีน</ion-label>
 
-  <br/>
-  
-  <ion-card class="cardHome1" *ngFor="let item of VacArray">
-    <ion-card-header>
+  <br />
+  <div scroll-y="false" style="width: 100%;">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let item of VacArray">
+        <div>
+          <ion-card class="cardHome1">
 
-      <ion-label class="LabelHC">{{ item.vacnameth }}</ion-label><br/>
-      <ion-label class="LabelHC">{{ item.vacnameen }}</ion-label>
+            <ion-grid style="text-align: left; padding: 20px;">
+              <ion-row>
+                <ion-col size=8>
+                  <ion-label class="LabelHC">{{ item.vacnameth }}</ion-label><br />
+                  <ion-label class="LabelHC">{{ item.vacnameen }}</ion-label><br />
+                  <ion-label class="LabelDC">ฉีดครั้งล่าสุด: </ion-label>
+                  <ion-label class="LabelDC">{{ item.start_date }}</ion-label><br />
+                  <ion-label class="LabelDC">{{ item.hospital }}</ion-label>
+                </ion-col>
+                <ion-col>
+                  <ion-img src="../assets/img/vaccine/{{ item.vacnameen }}.png" style="height: 80px"></ion-img>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
 
-    </ion-card-header>
+          </ion-card>
+        </div>
 
-    <ion-card-content>
-      <ion-label class="LabelDC">ฉีดครั้งล่าสุด</ion-label><br/>
-      <ion-label class="LabelDC">{{ item.start_date }}</ion-label><br/>
-      <ion-label class="LabelDC">{{ item.hospital }}</ion-label>
 
-      <ion-img src="../assets/img/vaccine/{{ item.vacnameen }}.png" style="height: 100px;">
 
-      </ion-img>
-    </ion-card-content>
+      </ion-slide>
+    </ion-slides>
 
-    <br/>
 
-    
-  </ion-card>
-  
+
+  </div>
+
+
+
 
 
 </ion-content>

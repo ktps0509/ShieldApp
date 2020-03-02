@@ -10,14 +10,14 @@ ion-content ion-toolbar {
 }
 
 .LabelHC{
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: white;
   font-family: 'Bai Jamjuree';
 }
 
 .LabelD{
-  font-size: 16px;
+  font-size: 14px;
   font-weight: lighter;
   color: white;
   font-family: 'Bai Jamjuree';
@@ -26,14 +26,33 @@ ion-content ion-toolbar {
 .LabelDC{
   font-size: 14px;
   font-weight: lighter;
-  color: white;
+  color: white  ;
   font-family: 'Bai Jamjuree';
+}
+
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: white;
+}
+
+
+.cardHome{
+  // background-color: #E1AD9F;
+  background: linear-gradient(155deg, #FF8474 50%, #ED6E64 50%);
+  
 }
 
 
 .cardHome1{
   background-color: #E1AD9F;
-  width: 40%;
-  height: 40%;
-  
+  min-height: 150px;
+  max-height: 150px;
+  max-width: 350px;
+  min-width: 350px;
+
 }

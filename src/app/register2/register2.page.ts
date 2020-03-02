@@ -94,7 +94,7 @@ export class Register2Page implements OnInit {
       console.log(res, "check sameeeeeeeeeeeeeeeee");
 
       let dt = "";
-
+      console.log(this.UserAccount, "เหลือศูนย์ได้ไงวะ")
       if (res.user) {
         await this.VacService.Register(this.UserAccount).subscribe(async (data) => {
           if (data) {
