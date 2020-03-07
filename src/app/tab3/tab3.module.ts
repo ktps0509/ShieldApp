@@ -19,7 +19,7 @@ import { ModalSelectTimevacPage } from '../modal/modal-select-timevac/modal-sele
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [Tab3Page, ModalSelectVacPage, ModalSelectTimevacPage],
+  declarations: [Tab3Page],
   entryComponents : [ModalSelectVacPage, ModalSelectTimevacPage]
 })
 export class Tab3PageModule {}
