@@ -8,6 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { ProfileUser } from '../Model/profile-user';
 import { StorageService } from '../service/storage.service';
 import { LoadingService } from '../service/loading.service';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 
 @Component({
@@ -41,7 +42,8 @@ export class Tab1Page {
     private storage: StorageService,
     private loadingCtrl: LoadingController,
     private VacService: VaccineServiceService,
-    private loadingService: LoadingService) { }
+    private loadingService: LoadingService,
+    private localNotifications: LocalNotifications) { }
 
   slideOpts = {
     initialSlide: 1,
@@ -64,6 +66,7 @@ export class Tab1Page {
       this.Age = data.age
       this.GetVacHistory(this.UID);
     })
+    this.Notifi();
   }
 
 
@@ -76,6 +79,47 @@ export class Tab1Page {
       console.log(data.data, "VacHis")
       this.VacArray = data.data
     })
+
+  }
+
+  Notifi() {
+
+    if (this.VacArray) {
+      for (let i = 0; i < this.VacArray.length; i++) {
+        let vactime = this.VacArray[i].vactimes
+        for (let i = 0; i < vactime.length; i++) {
+          let Time = vactime[i].date_to;
+          let VacNameTH = this.VacArray[i].vacnameth;
+          let VacNameEN = this.VacArray[i].vacnameen;
+          let Hospital = this.VacArray[i].hospital;
+
+          let DateTime = Time.split("-");
+          let Year = parseInt(DateTime[0]);
+          let Month = parseInt(DateTime[1]) - 1;
+          let Day = parseInt(DateTime[2]);
+
+          console.log(Year, Month, Day, "จะฉีดยาละน้าาา")
+          
+
+
+          this.localNotifications.schedule({
+            title: 'วันนี้มีฉีดวัคซีน!!',
+            text:  VacNameTH + ' ' + VacNameEN,
+            trigger: { at: new Date(new Date(Year, Month, Day, 7, 0, 0).getTime()) },
+          });
+
+        }
+
+      }
+
+
+    }
+    console.log(new Date(new Date(2020, 2, 8, 2, 13, 0).getTime()), "DateDATE")
+    console.log(new Date(new Date().getTime()), "dddededede")
+
+
+
+
 
   }
 

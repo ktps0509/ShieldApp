@@ -20,6 +20,8 @@ import {FIREBASE_CONFIG} from './fireconfig';
 import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard'; 
 
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,7 +42,8 @@ import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: FirestoreSettingsToken, useValue: {}}
+    { provide: FirestoreSettingsToken, useValue: {}},
+    LocalNotifications
   ],
   bootstrap: [AppComponent]
 })

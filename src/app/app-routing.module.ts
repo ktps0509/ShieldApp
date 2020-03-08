@@ -36,6 +36,8 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToHome } 
   },
  
+
+ 
 ];
 @NgModule({
   imports: [

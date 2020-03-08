@@ -39,7 +39,11 @@ const routes: Routes = [
       },
       {
         path: 'calendar',
-        loadChildren: () => import('../calendar/calendar.module').then( m => m.CalendarPageModule)
+        loadChildren: () => import('../calendar/calendar.module').then(m => m.CalendarPageModule)
+      },
+      {
+        path: 'more',
+        loadChildren: () => import('../more/more.module').then(m => m.MorePageModule)
       },
       // {
       //   path: '',
@@ -59,4 +63,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

@@ -12,9 +12,13 @@
   </div>
 
   <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
-    (onTitleChanged)="onViewTitleChanged($event)"
-    (onTimeSelected)="onTimeSelected($event)" step="30" startingDayWeek="1" class="calendar">
+    (onTitleChanged)="onViewTitleChanged($event)" (onTimeSelected)="onTimeSelected($event)" step="30"
+    startingDayWeek="1" class="calendar">
   </calendar>
+
+  <ion-img src="../assets/img/calendar_GP.png" style="width: 100%; position: fixed;"></ion-img>
+
+
 
   <ion-card class="cardEvent" *ngIf="VacDetail">
     <div style="padding-left: 20px;">
@@ -34,5 +38,9 @@
       </ion-grid>
     </div>
   </ion-card>
+
+
+
+
 
 </ion-content>

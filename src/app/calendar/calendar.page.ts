@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 import { VaccineServiceService } from '../service/vaccine-service.service';
 import * as moment from 'moment';
 import { LoadingService } from '../service/loading.service';
+import { CalendarComponent } from 'ionic2-calendar/calendar'
 
 export class UserGet {
   email: string;
@@ -20,8 +21,8 @@ export class vac {
   templateUrl: './calendar.page.html',
   styleUrls: ['./calendar.page.scss'],
 })
-export class CalendarPage {
-  
+export class CalendarPage implements OnInit {
+
   VacDetail
   event = {
     title: '',
@@ -32,7 +33,7 @@ export class CalendarPage {
   };
 
 
-  User : UserGet;
+  User: UserGet;
   DateModel = []
 
   VacArray: any;
@@ -58,66 +59,66 @@ export class CalendarPage {
     private loadingService: LoadingService) { }
 
   ngOnInit() {
+    
     this.loadingService.show("Loading")
-
     this.VacService.GetCurrentUser().then((data) => {
       this.email = data.email;
       this.GetVacHistory(this.email)
+      this.loadingService.hide();
     })
-    this.loadingService.hide();
   }
 
-  async GetVacHistory(uid) {
-    await this.VacService.GetHistoryVaccine(uid).subscribe((data) => {
+  ionViewDidEnter() {
+    this.ngOnInit();
+  }
+
+  GetVacHistory(uid) {
+    this.VacService.GetHistoryVaccine(uid).subscribe((data) => {
       this.VacArray = data.data
+      this.addEvent()
     })
 
-    setTimeout(() => {
-      this.addEvent()
-    }, 3000);
-    
   }
-
 
   async addEvent() {
-
-    for (let i = 0; i < this.VacArray.length; i++) {
-      let vactime = this.VacArray[i].vactimes
-      for (let i = 0; i < vactime.length; i++) {
-        let vacTimeGet = vactime[i].date_to;
-        this.DateModel.push(vacTimeGet)
+    if (this.VacArray) {
+      for (let i = 0; i < this.VacArray.length; i++) {
+        let vactime = this.VacArray[i].vactimes
+        for (let i = 0; i < vactime.length; i++) {
+          let vacTimeGet = vactime[i].date_to;
+          this.DateModel.push(vacTimeGet)
+        }
       }
-    }
 
-    for (let i = 0; i <= this.DateModel.length; i++) {
-      let eventCopy = {
-        title: this.event.title,
-        startTime: new Date(this.DateModel[i]),
-        endTime: new Date(this.DateModel[i]),
-        allDay: this.event.allDay,
-        desc: this.event.desc
-      }
-      setTimeout(() => {
+      for (let i = 0; i <= this.DateModel.length; i++) {
+        let eventCopy = {
+          title: this.event.title,
+          startTime: new Date(this.DateModel[i]),
+          endTime: new Date(this.DateModel[i]),
+          allDay: this.event.allDay,
+          desc: this.event.desc
+        }
         this.eventSource.push(eventCopy);
-      });
 
+      }
     }
-    this.loadingService.hide()
   }
+
+
+
 
   onViewTitleChanged(title) {
     this.viewTitle = title
-
   }
 
   onTimeSelected(ev) {
 
     this.VacDetail = null;
 
-    if(ev.events.length >= 1){
+    if (ev.events.length >= 1) {
       let selected = new Date(ev.selectedTime);
       let DateConvert = moment(selected).format('YYYY-MM-DD');
-      console.log(DateConvert,"eieieieieie")
+      console.log(DateConvert, "eieieieieie")
 
       this.User = Object.assign({});
       this.User.email = this.email
@@ -126,14 +127,14 @@ export class CalendarPage {
 
       this.VacService.GetHistoryByDate(this.User).subscribe((data) => {
         console.log(data.message[0])
-        
+
         this.VacDetail = data.message[0];
         console.log(this.VacDetail, "Detail na")
         let vacnameth = data.message[0].vacnameth;
         let vacnameen = data.message[0].vacnameen;
         let vacdate = data.message[0].vacdate;
         let vactime = data.message[0].time;
-      } )
+      })
     }
   }
 

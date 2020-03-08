@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { VaccineServiceService } from 'src/app/service/vaccine-service.service';
+import { LoadingService } from 'src/app/service/loading.service';
 
 @Component({
   selector: 'app-modal-select-vac',
@@ -16,7 +17,8 @@ export class ModalSelectVacPage implements OnInit {
   constructor(
     private modalCtrl: ModalController,
     private navParams: NavParams,
-    private VacService: VaccineServiceService) { }
+    private VacService: VaccineServiceService,
+    private loadingService: LoadingService) { }
 
   ngOnInit() {
     this.InitailModal();
@@ -33,6 +35,7 @@ export class ModalSelectVacPage implements OnInit {
         console.log(this.VacList)
       }
     )
+    this.loadingService.hide();
   }
 
   ItemOptionClick(item: any): void {
@@ -40,9 +43,10 @@ export class ModalSelectVacPage implements OnInit {
   }
 
   DimissModal() {
+    console.log("AHdasfjlashdflk")
     this.VacList = [];
     this.modalCtrl.dismiss({
-      dismissed: true
+      'dismissed': true
     });
   }
 

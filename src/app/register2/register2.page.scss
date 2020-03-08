@@ -12,3 +12,7 @@ ion-label{
     color: gray;
 
 }
+
+.no-scroll {
+    --overflow: hidden;
+}

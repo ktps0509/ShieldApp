@@ -1,46 +1,52 @@
-<ion-content class="bg-image-hs2">
+<ion-content class="no-scroll">
 
   <ion-img src="../assets/img/Accountheading.png" style="width: 100%;"></ion-img>
 
-    <br/>
+  <br />
 
-    <form [formGroup]="UserAccountForm">
+  <form [formGroup]="UserAccountForm">
     <div style="text-align: center;">
       <ion-label>
         อีเมล
       </ion-label>
-      <br/>
+      <br />
       <ion-card>
         <ion-input type="text" name="email" formControlName="Email"></ion-input>
       </ion-card>
     </div>
-    <br/>
+    <br />
     <div style="text-align: center;">
       <ion-label>
         รหัสผ่าน
       </ion-label>
-      <br/>
+      <ion-img src="../assets/img/Accountbg.png" style="width: 100%; position: fixed;"></ion-img>
+
+      <br />
       <ion-card>
         <ion-input type="password" name="password" formControlName="Password"></ion-input>
       </ion-card>
     </div>
+
     <div style="text-align: center;">
       <ion-label>
         ยืนยันรหัสผ่าน
       </ion-label>
-      <br/>
+      <br />
       <ion-card>
         <ion-input type="password" name="confirmpassword" formControlName="Password2"></ion-input>
       </ion-card>
     </div>
-    
-    <br/>
+
+    <br />
 
 
     <div style="text-align: center;">
-      <ion-button color="danger" (click)="Login()" style="font-family: 'Prompt'; font-size: 16px;" [disabled]="!UserAccountForm.valid">สมัครสมาชิก</ion-button>
+      <ion-button color="danger" (click)="Login()" style="font-family: 'Prompt'; font-size: 16px;"
+        [disabled]="!UserAccountForm.valid">สมัครสมาชิก</ion-button>
     </div>
   </form>
-   
+
+
+
 
 </ion-content>

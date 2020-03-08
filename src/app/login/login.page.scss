@@ -21,3 +21,7 @@ ion-input{
 ion-button{
     font-family: 'Prompt';
 }
+
+.no-scroll {
+    --overflow: hidden;
+}

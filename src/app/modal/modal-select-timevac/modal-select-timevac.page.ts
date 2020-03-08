@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { VaccineServiceService } from 'src/app/service/vaccine-service.service';
+import { LoadingService } from 'src/app/service/loading.service';
 
 @Component({
   selector: 'app-modal-select-timevac',
@@ -13,7 +14,8 @@ export class ModalSelectTimevacPage implements OnInit {
 
   constructor(private modalCtrl: ModalController,
     private navParams: NavParams,
-    private VacService: VaccineServiceService) { }
+    private VacService: VaccineServiceService,
+    private loadingService: LoadingService) { }
 
   ngOnInit() {
     this.InitailModal();
@@ -30,6 +32,8 @@ export class ModalSelectTimevacPage implements OnInit {
         console.log(this.CountVac)
       }
     )
+    this.loadingService.hide();
+    
 }
 
 ItemOptionClick(item: any): void {
@@ -39,7 +43,7 @@ ItemOptionClick(item: any): void {
 DimissModal() {
   this.CountVac = [];
   this.modalCtrl.dismiss({
-    dismissed: true
+    'dismissed': true
   });
 }
 }
