@@ -40,6 +40,7 @@ export class Vacine1ListPage implements OnInit {
       data => {
         this.VacList = data.data;
         console.log(this.VacList)
+        this.VacType = this.VacList[0].vacage;
       },
       error => {
       });
