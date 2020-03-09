@@ -38,13 +38,40 @@ export class LibraryPage implements OnInit {
       this.router.navigate(['../tabs/library/vacine2/list', { 'type': this.typeSend}]);
     }
     else if(type == 3){
-      this.typeSend = "C"
+      this.typeSend = "C";
+      this.router.navigate(['../tabs/library/vacine3/list', { 'type': this.typeSend}]);
     }
     else if(type == 4){
-      this.typeSend = "D"
+      this.typeSend = "D";
+      this.router.navigate(['../tabs/library/vacine4/list', { 'type': this.typeSend}]);
     }
     else if(type == 5){
-      this.typeSend = "E"
+      this.typeSend = "E";
+      this.router.navigate(['../tabs/library/vacine5/list', { 'type': this.typeSend}]);
+    }
+    else if(type == 6){
+      this.typeSend = "F";
+      this.router.navigate(['../tabs/library/vacine6/list', { 'type': this.typeSend}]);
+    }
+    else if(type == 7){
+      this.typeSend = "K";
+      this.router.navigate(['../tabs/library/vacine7/list', { 'type': this.typeSend}]);
+    }
+    else if(type == 8){
+      this.typeSend = "I";
+      this.router.navigate(['../tabs/library/vacine8/list', { 'type': this.typeSend}]);
+    }
+    else if(type == 9){
+      this.typeSend = "H";
+      this.router.navigate(['../tabs/library/vacine9/list', { 'type': this.typeSend}]);
+    }
+    else if(type == 10){
+      this.typeSend = "J";
+      this.router.navigate(['../tabs/library/vacine10/list', { 'type': this.typeSend}]);
+    }
+    else if(type == 11){
+      this.typeSend = "G";
+      this.router.navigate(['../tabs/library/vacine11/list', { 'type': this.typeSend}]);
     }
   }
 

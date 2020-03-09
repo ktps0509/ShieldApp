@@ -61,6 +61,12 @@ export class VaccineServiceService {
       );
   }
 
+  getVacLisyByType2(type: string): Observable<any> {
+    return this.http.get<any>(`${environment.Endpiont_API}/getvacbytype2/${type}`)
+      .pipe(
+      );
+  }
+
   getVacByCode(code: string): Observable<any> {
     return this.http.get<any>(`${environment.Endpiont_API}/getvacbycode/${code}`)
   }

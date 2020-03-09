@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VaccineServiceService } from 'src/app/service/vaccine-service.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { first } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-vacine1-detail',
@@ -12,7 +13,8 @@ export class Vacine1DetailPage implements OnInit {
 
   constructor(private vacService: VaccineServiceService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private http: HttpClient) { }
 
 
     Code : any;
@@ -22,11 +24,11 @@ export class Vacine1DetailPage implements OnInit {
     VacTotal: string;
     VacAge: string;
 
+
   ngOnInit() {
     this.activatedRoute.paramMap
     .subscribe((queryParams: ParamMap) => {
        this.Code = queryParams.get('code');
-      //  this.FormLoad();
        this.FormLoadByCode(this.Code)
    });
   }

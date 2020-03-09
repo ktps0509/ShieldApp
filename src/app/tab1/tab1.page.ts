@@ -104,7 +104,7 @@ export class Tab1Page {
 
           this.localNotifications.schedule({
             title: 'วันนี้มีฉีดวัคซีน!!',
-            text:  VacNameTH,
+            text:  VacNameTH + "" + VacNameEN,
             trigger: { at: new Date(new Date(Year, Month, Day, 15, 0, 0).getTime()) },
           });
 
