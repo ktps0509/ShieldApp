@@ -4,9 +4,9 @@
       {{ VacHeadTH }}
     </ion-label>
     <br />
-    <ion-label style="padding-left: 5%;">
+    <!-- <ion-label style="padding-left: 5%;">
       ({{ VacHeadEN }})
-    </ion-label>
+    </ion-label> -->
   </ion-toolbar>
 </ion-header>
 
@@ -16,6 +16,16 @@
     <ion-row>
       <ion-col size=8>
         <p class="labelH">&nbsp;&nbsp;&nbsp;{{ Descript }}
+        </p>
+        <p class="labelH" *ngIf="Descript2">&nbsp;&nbsp;&nbsp;{{ Descript2 }}
+        </p>
+        <p class="labelH" *ngIf="Descript3">&nbsp;&nbsp;&nbsp;{{ Descript3 }}
+        </p>
+        <p class="labelH" *ngIf="Descript4">&nbsp;&nbsp;&nbsp;{{ Descript4 }}
+        </p>
+        <p class="labelH" *ngIf="Descript5">&nbsp;&nbsp;&nbsp;{{ Descript5 }}
+        </p>
+        <p class="labelH" *ngIf="Descript6">&nbsp;&nbsp;&nbsp;{{ Descript6 }}
         </p>
       </ion-col>
       <ion-col>

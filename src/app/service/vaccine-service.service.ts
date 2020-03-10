@@ -83,6 +83,10 @@ export class VaccineServiceService {
     return this.http.post<any>(`${environment.Endpiont_API}/adduser`, UserProfile)
   }
 
+  UpdateUser(UserProfile): Observable<any> {
+    return this.http.post<any>(`${environment.Endpiont_API}/updateuser`, UserProfile)
+  }
+
   AddVaccine(Vac): Observable<any> {
     return this.http.post<any>(`${environment.Endpiont_API}/addVacByUser`, Vac)
   }

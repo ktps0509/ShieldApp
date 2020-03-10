@@ -5,39 +5,46 @@
   <br />
 
   <form [formGroup]="UserAccountForm">
-    <div style="text-align: center;">
+
+    <ion-row style="text-align: center; justify-content: center">
       <ion-label>
         อีเมล
       </ion-label>
-      <br />
+    </ion-row>
+
+    <ion-row style="text-align: center; justify-content: center">
       <ion-card>
         <ion-input type="text" name="email" formControlName="Email"></ion-input>
       </ion-card>
-    </div>
-    <br />
-    <div style="text-align: center;">
+    </ion-row>
+
+    <ion-row style="text-align: center; justify-content: center">
       <ion-label>
         รหัสผ่าน
       </ion-label>
-      <ion-img src="../assets/img/Accountbg.png" style="width: 100%; position: fixed;"></ion-img>
+    </ion-row>
 
-      <br />
+    <ion-row style="text-align: center; justify-content: center">
       <ion-card>
         <ion-input type="password" name="password" formControlName="Password"></ion-input>
       </ion-card>
-    </div>
+    </ion-row>
+      
 
-    <div style="text-align: center;">
+    <ion-row style="text-align: center; justify-content: center">
       <ion-label>
         ยืนยันรหัสผ่าน
       </ion-label>
-      <br />
+    </ion-row>
+
+    <ion-row style="text-align: center; justify-content: center">
       <ion-card>
         <ion-input type="password" name="confirmpassword" formControlName="Password2"></ion-input>
       </ion-card>
-    </div>
+    </ion-row>
 
-    <br />
+
+    <ion-img src="../assets/img/Accountbg.png" style="width: 100%; position: fixed;"></ion-img>
 
 
     <div style="text-align: center;">

@@ -1,8 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>แก้ข้อมูลส่วนตัว</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <ion-img src="../assets/img/Profileheading.png" style="width: 100%;"></ion-img>
-
-
-  <form [formGroup]="UserProfile">
+  <form [formGroup]="Profile">
     <ion-grid>
       <ion-row>
         <ion-col size=4 style="text-align: right;">
@@ -73,6 +76,8 @@
           </ion-card>
         </ion-col>
       </ion-row>
+      <ion-img src="../assets/img/Accountbg.png" style="width: 100%; position: fixed;"></ion-img>
+
 
       <ion-row>
         <ion-col size=4 style="text-align: right;">
@@ -116,18 +121,11 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-
-
-    <ion-row>
-      <ion-col style="text-align: right; padding-right: 5%;">
-        <ion-button color="danger" (click)="Next()" [disabled]="!UserProfile.valid"
-          style="font-family: 'Prompt'; font-size: 16px;">ถัดไป</ion-button>
-      </ion-col>
-    </ion-row>
-
   </form>
 
-  <ion-img src="../assets/img/Profilebg.png" style="width: 100%; position: static"></ion-img>
-
+  <div style="text-align: center;">
+    <ion-button color="danger" (click)="Update()" style="font-family: 'Prompt'; font-size: 16px;"
+      >ตกลง</ion-button>
+  </div>
 
 </ion-content>

@@ -24,6 +24,15 @@ export class MorePage implements OnInit {
   ngOnInit() {
   }
 
+  ionViewDidEnter() {
+    this.ngOnInit();
+  }
+
+  EditProfile() {
+    this.loadingService.show("Loading");
+    this.router.navigate(['tabs/more/edit-profile']);
+  }
+
   LogOut() {
     this.loadingService.show("Sign Out");
     this.afAuth.auth.signOut();
