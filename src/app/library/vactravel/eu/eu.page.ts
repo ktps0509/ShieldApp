@@ -46,7 +46,7 @@ export class EuPage implements OnInit {
 }
 
 View(typeSend: string){
-  this.router.navigate(['../tabs/library/vacine1/detail', { 'code': typeSend}]);
+  this.router.navigate(['../tabs/library/vactravel/eu/detail', { 'code': typeSend}]);
 }
 
 }

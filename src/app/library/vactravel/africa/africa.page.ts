@@ -13,40 +13,40 @@ export class AfricaPage implements OnInit {
 
   constructor(private vacService: VaccineServiceService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,) { }
+    private router: Router, ) { }
 
   VacList: any[];
-  VacListAfter : any[];
-  VacType : string;
-  Type : any;
+  VacListAfter: any[];
+  VacType: string;
+  Type: any;
   ngOnInit() {
 
     this.activatedRoute.paramMap
-    .subscribe((queryParams: ParamMap) => {
-       this.Type = queryParams.get('type');
-       console.log(this.Type)
-      //  this.FormLoad();
-       this.FormLoadByType(this.Type)
-   });
-    
-  
+      .subscribe((queryParams: ParamMap) => {
+        this.Type = queryParams.get('type');
+        console.log(this.Type)
+        //  this.FormLoad();
+        this.FormLoadByType(this.Type)
+      });
+
+
   }
 
-  FormLoadByType(type: string){
+  FormLoadByType(type: string) {
 
     return this.vacService.getVacLisyByType2(type).pipe(first())
-    .subscribe(
-      data => {
-        this.VacList = data.data;
-        console.log(this.VacList)
-        this.VacType = this.VacList[0].vacage;
-      },
-      error => {
-      });
-}
+      .subscribe(
+        data => {
+          this.VacList = data.data;
+          console.log(this.VacList)
+          this.VacType = this.VacList[0].vacage;
+        },
+        error => {
+        });
+  }
 
-View(typeSend: string){
-  this.router.navigate(['../tabs/library/vacine1/detail', { 'code': typeSend}]);
-}
+  View(typeSend: string) {
+    this.router.navigate(['../tabs/library/vactravel/africa/detail', { 'code': typeSend }]);
+  }
 
 }

@@ -46,6 +46,6 @@ export class AsiaPage implements OnInit {
 }
 
 View(typeSend: string){
-  this.router.navigate(['../tabs/library/vacine1/detail', { 'code': typeSend}]);
+  this.router.navigate(['../tabs/library/vactravel/asia/detail', { 'code': typeSend}]);
 }
 }
