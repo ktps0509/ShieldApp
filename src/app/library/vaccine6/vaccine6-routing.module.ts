@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'list',
     loadChildren: () => import('./vaccine6-list/vaccine6-list.module').then( m => m.Vaccine6ListPageModule)
   },
+  {
+    path: 'detail',
+    loadChildren: () => import('./vaccine6-detail/vaccine6-detail.module').then( m => m.Vaccine6DetailPageModule)
+  },
 ];
 
 @NgModule({

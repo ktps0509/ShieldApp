@@ -45,5 +45,10 @@ export class Vaccine5ListPage implements OnInit {
         });
   }
 
+  View(typeSend: string){
+    this.router.navigate(['../tabs/library/vacine5/detail', { 'code': typeSend}]);
+  }
+
+
 
 }

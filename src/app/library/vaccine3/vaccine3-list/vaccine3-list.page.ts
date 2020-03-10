@@ -41,4 +41,9 @@ export class Vaccine3ListPage implements OnInit {
         });
   }
 
+  View(typeSend: string){
+    this.router.navigate(['../tabs/library/vacine3/detail', { 'code': typeSend}]);
+  }
+  
+
 }
