@@ -15,6 +15,7 @@ export class Vaccine2ListPage implements OnInit {
     private router: Router) { }
 
 
+
   VacList: any[];
   VacListAfter: any[];
   VacType: string;

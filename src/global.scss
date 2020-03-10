@@ -56,7 +56,7 @@ ion-title {
 }
 
   ion-header {
-    height: 12%;
+    height: 9%;
     background-color: transparent;
 
 }
@@ -127,6 +127,24 @@ ion-toolbar{
 
 .bg-image-l3 {
   background-image: url(../src/assets/img/cardlist/13-18.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-image-l4 {
+  background-image: url(../src/assets/img/cardlist/19-26.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-image-l5 {
+  background-image: url(../src/assets/img/cardlist/27-64.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-image-l6 {
+  background-image: url(../src/assets/img/cardlist/65+.png);
   background-repeat: no-repeat;
   background-size: cover;
 }

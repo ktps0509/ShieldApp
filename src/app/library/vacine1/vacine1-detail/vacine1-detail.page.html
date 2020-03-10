@@ -1,7 +1,11 @@
 <ion-header>
   <ion-toolbar class="toolbarColor">
-    <ion-label style="padding-left: 5%">
+    <ion-label style="padding-left: 5%;">
       {{ VacHeadTH }}
+    </ion-label>
+    <br />
+    <ion-label style="padding-left: 5%;">
+      ({{ VacHeadEN }})
     </ion-label>
   </ion-toolbar>
 </ion-header>
@@ -11,8 +15,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size=8>
-        <p class="labelH">&nbsp;&nbsp;&nbsp;วัณโรคเกิดจากเชื้อแบคทีเรีย สามารถติดเชื้อได้ผ่านการไอ จามหรือการพูดคุย โดยจะมีอาการไอเรื้อรัง
-          มีเสมหะ มีไข้ต่ำๆ อ่อนเพลีย เบื่ออาหาร น้ำหนักลด และแน่นหน้าอก และอาจรุนแรงจนถึงขั้นเสียชีวิต
+        <p class="labelH">&nbsp;&nbsp;&nbsp;{{ Descript }}
         </p>
       </ion-col>
       <ion-col>
@@ -26,29 +29,28 @@
         {{ VacTotal }}
       </p>
     </ion-row>
-    <ion-badge>ผลข้างเคียง</ion-badge>
-    <ion-row>
+    <ion-badge *ngIf="Effect">ผลข้างเคียง</ion-badge>
+    <ion-row *ngIf="Effect">
       <p class="labelH" style="padding-left: 5%; padding-right: 5%;">
-        อาจเป็นแผลหนองและต่อมน้ำเหลืองบริเวณที่ฉีด
+        {{ Effect }}
       </p>
     </ion-row>
 
-    <ion-row>
+    <ion-row *ngIf="After">
       <ion-badge>การดูแลหลังฉีดวัคซีน</ion-badge>
     </ion-row>
 
-    <ion-row>
+    <ion-row *ngIf="After">
       <p class="labelH" style="padding-left: 5%; padding-right: 5%;">
-        &nbsp;&nbsp;&nbsp;&nbsp;ควรดูเเลรักษาความสะอาดบริเวณผิวหนังที่ฉีด โดยใช้สําลีสะอาดชุบน้ำเช็ดให้สะอาด ถ้าต่อมน้ำเหลืองโตและเป็นฝี
-        ควรพบแพทย์เพื่อทำการดูดหนองออก และรับยาต้านวัณโรคในบางกรณี
+        &nbsp;&nbsp;&nbsp;&nbsp;{{ After }}
       </p>
     </ion-row>
 
-    <ion-row>
-      <ion-badge>ราคาวัคซีน</ion-badge>
+    <ion-row *ngIf="Cost1">
+      <ion-badge  >ราคาวัคซีน</ion-badge>
     </ion-row>
 
-    <ion-card>
+    <ion-card *ngIf="Cost1">
       <ion-row>
         <ion-col style="background-color:#EC9973; color: white;" class="labelH">
           เอกชน
@@ -60,10 +62,10 @@
 
       <ion-row>
         <ion-col style="background-color:#EC9973; color: white;" class="labelH">
-        ราคาเข็มละ 1,000-1,200 บาท
+        {{ Cost1 }}
         </ion-col>
         <ion-col style="background-color:#DB865F; color: white;" class="labelH">
-        ราคาเข็มละ 300-500 บาท
+        {{ Cost2 }}
         </ion-col>
       </ion-row>
     </ion-card>
