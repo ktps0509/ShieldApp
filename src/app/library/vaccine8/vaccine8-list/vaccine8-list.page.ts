@@ -46,4 +46,8 @@ export class Vaccine8ListPage implements OnInit {
         });
   }
 
+  View(typeSend: string){
+    this.router.navigate(['../tabs/library/vacine8/detail', { 'code': typeSend}]);
+  }
+
 }

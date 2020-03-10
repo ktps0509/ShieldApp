@@ -44,4 +44,8 @@ export class Vaccine6ListPage implements OnInit {
         });
   }
 
+  View(typeSend: string){
+    this.router.navigate(['../tabs/library/vacine6/detail', { 'code': typeSend}]);
+  }
+
 }

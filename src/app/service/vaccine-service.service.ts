@@ -71,6 +71,10 @@ export class VaccineServiceService {
     return this.http.get<any>(`${environment.Endpiont_API}/getvacbycode/${code}`)
   }
 
+  getVacByCode2(code: string): Observable<any> {
+    return this.http.get<any>(`${environment.Endpiont_API}/getvacbycode2/${code}`)
+  }
+
   LoginAPI(User): Observable<any> {
     return this.http.post<any>(`${environment.Endpiont_API}/userlogin`, User)
   }
