@@ -73,6 +73,9 @@ export class LibraryPage implements OnInit {
       this.typeSend = "G";
       this.router.navigate(['../tabs/library/vacine11/list', { 'type': this.typeSend}]);
     }
+    else if(type == 12){
+      this.router.navigate(['../tabs/library/vactravel']);
+    }
   }
 
 }

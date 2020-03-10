@@ -68,6 +68,10 @@ const routes: Routes = [
       },
     ]
   },
+  {
+    path: 'vactravel',
+    loadChildren: () => import('./vactravel/vactravel.module').then( m => m.VactravelPageModule)
+  },
   
   // {
   //   path: 'library-list',

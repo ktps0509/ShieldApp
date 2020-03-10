@@ -1,0 +1,23 @@
+ion-grid{
+    background-color: transparent;;
+  }
+
+
+  ion-content {
+      --background: url('/src/assets/img/menu/data_bg.png') no-repeat 100% 100%;
+      background-position-y: bottom;
+  }
+
+
+  .cardPic{
+      padding-left: 5px;
+      padding-right: 5px;
+  }
+
+  .Menu-HeaderList{
+      font-size: 16px;
+      font-weight: bold;
+      padding: 6%;
+      color: gray;
+      font-family: 'Roboto';
+  }

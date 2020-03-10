@@ -1,0 +1,44 @@
+.card-list{
+    background-color: #E1AD9F;
+}
+
+// ion-content {
+//     // --background: url('/src/assets/img/menu/data_bg.png') no-repeat 100% 100%;
+//     background: red !important;
+// }
+
+ion-content {
+    --background: url('/src/assets/img/cardlist/0-3.png') no-repeat 100% 100%;
+}
+
+ion-list {
+    background-color: transparent;
+}
+
+ion-header {
+    height: 12%;
+    background-color: transparent;
+
+}
+
+.text-card{
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Bai Jamjuree';
+}
+
+.text-card2{
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Bai Jamjuree';
+}
+
+.text-head-list{
+    font-size: 26px;
+    font-family: 'Bai Jamjuree';
+    color: white;
+    font-weight: bold;
+    padding-left: 15px;
+}
