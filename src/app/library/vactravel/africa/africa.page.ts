@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Vac, VaccineServiceService } from 'src/app/service/vaccine-service.service';
 import { first } from 'rxjs/operators';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { LoadingService } from 'src/app/service/loading.service';
 
 @Component({
   selector: 'app-africa',
@@ -13,14 +14,15 @@ export class AfricaPage implements OnInit {
 
   constructor(private vacService: VaccineServiceService,
     private activatedRoute: ActivatedRoute,
-    private router: Router, ) { }
+    private router: Router,
+    private loadingService: LoadingService) { }
 
   VacList: any[];
   VacListAfter: any[];
   VacType: string;
   Type: any;
   ngOnInit() {
-
+    this.loadingService.show("Loading");
     this.activatedRoute.paramMap
       .subscribe((queryParams: ParamMap) => {
         this.Type = queryParams.get('type');
@@ -29,7 +31,7 @@ export class AfricaPage implements OnInit {
         this.FormLoadByType(this.Type)
       });
 
-
+      this.loadingService.hide();
   }
 
   FormLoadByType(type: string) {

@@ -29,6 +29,7 @@ export class MorePage implements OnInit {
     this.afAuth.auth.signOut();
     this.storage.remove('User');
     this.storage.clear();
+    this.VacService.openSuccess('Log Out');
     this.loadingService.hide();
     this.router.navigate(['/login']);
   }
