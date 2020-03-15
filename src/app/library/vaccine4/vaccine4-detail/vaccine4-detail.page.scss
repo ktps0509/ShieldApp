@@ -11,18 +11,20 @@ ion-title{
 
 ion-badge{
     font-size: 16px;
-    --background:#A51B1D !important;
+    --background:#F15F5C !important;
     font-family: 'Prompt';
 }
 
 .toolbarColor{
-    --background: #A51B1D;
+    --background: #F15F5C;
     font-size: 16px;
     color: white;
     font-family: 'Prompt';
+    padding-left: 5%;
+
   }
 
   ion-content {
-    --background: #F15F5C;
+    --background: #A51B1D;
     background-position-y: bottom;
   }

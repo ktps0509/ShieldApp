@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'introduce',
     pathMatch: 'full'
   },
   {
@@ -35,6 +35,11 @@ const routes: Routes = [
     loadChildren: () => import('./register2/register2.module').then( m => m.Register2PageModule),
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToHome } 
   },
+  {
+    path: 'introduce',
+    loadChildren: () => import('./introduce/introduce.module').then( m => m.IntroducePageModule)
+  },
+
  
 
  

@@ -1,0 +1,45 @@
+<ion-app>
+  <ion-content fullscreen scroll-y="false">
+
+
+    <ion-slides pager="true" [options]="slideOpts" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+      <ion-slide class="step-one"  style="text-align: left;">
+        <ion-label style="color: black; font-family: 'Prompt'; font-size: 32px; font-weight: 1000; margin-top: 5%;">Get
+          Start!</ion-label>
+        <ion-img src="../assets/img/Intro1.gif"></ion-img>
+        <div class="title-intro">
+          <h4 style="color: black; font-family: 'Prompt'; font-weight: 1000;">คลังวัคซีน</h4>
+          <h6 style="color: black; font-family: 'Prompt';">แหล่งรวมข้อมูลวัคซีน<br />
+            วัคซีนที่เหมาะสมในแต่ละช่วงวัย
+          </h6>
+        </div>
+      </ion-slide>
+
+
+      <ion-slide class="step-two"  style="text-align: left;">
+        <ion-img src="../assets/img/Intro2.gif"></ion-img>
+        <div class="title-intro">
+          <h4 style="color: black; font-family: 'Prompt'; font-weight: 1000;">ช่วยจดจำนัด </h4>
+          <h6 style="color: black; font-family: 'Prompt';">ปฎิทินนัดหมาย ช่วยแจ้งเตือนการฉีดวัคซีน
+            <br />เพื่อได้รับวัคซีนอย่างมีประสิทธิภาพ</h6>
+        </div>
+
+      </ion-slide>
+
+      <ion-slide class="step-three"  style="text-align: left;">
+        <ion-img src="../assets/img/Intro3.gif"></ion-img>
+        <div class="title-intro">
+          <h4 style="color: black; font-family: 'Prompt'; font-weight: 1000;">เริ่มต้นป้องกัน </h4>
+          <h6 style="color: black; font-family: 'Prompt';">เริ่มต้นฉีดวัคซีนสร้างภูมิคุ้มกัน กันไว้ห่างไกลโรค</h6>
+        </div>
+        <div>
+          <ion-button (click)="clickToFinished()" style="color: #fff; font-size: 16px !important; font-family: 'Prompt'"
+            color="danger">เริ่มต้น <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-slide>
+
+
+    </ion-slides>
+  </ion-content>
+</ion-app>

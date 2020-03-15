@@ -1,42 +1,44 @@
 <ion-content class="no-scroll">
 
   <ion-img src="../assets/img/Heading.png" style="width: 100%;"></ion-img>
-<!-- 
+  <!-- 
   <div style="padding-top: 40%; padding-left: 5%; padding-right: 5%; position: sticky;">
     <ion-label class="HeaderLogin">ลงชื่อเข้าใช้</ion-label>
   </div> -->
-  <br/>
+  <br />
 
   <form [formGroup]="LoginForm">
-  <div>
-    <ion-card style="height: 50px;">
+    <div>
+      <ion-card style="height: 50px;">
 
-      <ion-input type="text" name="username" placeholder="Username" formControlName="Email"></ion-input>
+        <ion-input type="text" name="username" placeholder="Username" formControlName="Email"></ion-input>
 
-    </ion-card>
+      </ion-card>
 
-    <br />
+      <br />
 
-    <ion-card style="height: 50px;">
+      <ion-card style="height: 50px;">
 
-      <ion-input type="password" name="paasword" placeholder="Password" formControlName="Password"></ion-input>
+        <ion-input type="password" name="paasword" placeholder="Password" formControlName="Password"></ion-input>
 
-    </ion-card>
+      </ion-card>
 
 
-    <ion-grid>
-      <ion-row>
-        <ion-col style="text-align: center;">
-          <ion-button color="danger" style="width: 60%;" (click)="Register()">สมัครสมาชิก</ion-button>
-        </ion-col>
-        <ion-col style="text-align: center;">
-          <ion-button color="danger" expand="block" style="width: 60%; " (click)=Login() [disabled]="!LoginForm.valid">ล็อคอิน</ion-button>
-        </ion-col>
+      <ion-img src="../assets/img/BG_graphic_signin.png" style="position: fixed;"></ion-img>
 
-      </ion-row>
-    </ion-grid>
-  </div>
-</form>
+      <ion-grid>
+        <ion-row>
+          <ion-col style="text-align: center;">
+            <ion-button color="danger" style="width: 60%;" (click)="Register()">สมัครสมาชิก</ion-button>
+          </ion-col>
+          <ion-col style="text-align: center;">
+            <ion-button color="danger" expand="block" style="width: 60%; " (click)=Login()
+              [disabled]="!LoginForm.valid">ล็อคอิน</ion-button>
+          </ion-col>
 
-<ion-img src="../assets/img/calendar_GP.png" style="width: 100%;"></ion-img>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </form>
+
 </ion-content>

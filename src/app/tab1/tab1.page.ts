@@ -75,7 +75,8 @@ export class Tab1Page {
   }
 
   GetVacHistory(uid) {
-    this.VacService.GetHistoryVaccine(uid).subscribe((data) => {
+    console.log(uid, "UID")
+   return this.VacService.GetHistoryVaccine(uid).subscribe((data) => {  
       console.log(data.data, "VacHis")
       this.VacArray = data.data
     })

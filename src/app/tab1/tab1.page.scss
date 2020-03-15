@@ -40,19 +40,29 @@ ion-content ion-toolbar {
   background: white;
 }
 
+ion-content {
+  --background: url('/src/assets/img/menu/data_bg.png') no-repeat 100% 100%;
+  background-position-y: bottom;
+}
+
 
 .cardHome{
-  // background-color: #E1AD9F;
   background: linear-gradient(155deg, #FF8474 50%, #ED6E64 50%);
-  
 }
 
 
 .cardHome1{
-  background-color: #E1AD9F;
-  min-height: 150px;
-  max-height: 150px;
-  max-width: 350px;
-  min-width: 350px;
+  background-color: #FF8474;
+  min-width: 95%;
+  max-width: 95%;
+  max-height: 90%;
+}
 
+ion-slides {
+  --bullet-background: grey;
+  --bullet-background-active: #EB445A;
+}
+
+ion-slide{
+  height: 100%;
 }

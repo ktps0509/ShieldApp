@@ -45,14 +45,13 @@ ion-tab-button{
 }
 
 ion-title {
-    font-size: 34px;
+    font-size: 26px;
     font-weight: bold;
     padding-left: 15px;
     padding-right: 15px;
     text-align: left;
     color: gray;
     font-family: 'Prompt';
-    
 }
 
   ion-header {
@@ -91,7 +90,28 @@ ion-toolbar{
     background-size: contain;
 }
 
-.bg-image-h {
+.bg-image-more {
+  background-image: url(../src/assets/img/Account_gp.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.bg-image-travel {
+  background-image: url(../src/assets/img/travelmenu/travelerbg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.bg-image-Home {
+  background-image: url(../src/assets/img/Home_BG.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.bg-image-signin {
   background-image: url(../src/assets/img/BG_graphic_signin.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -113,6 +133,12 @@ ion-toolbar{
 }
 
 .bg-image-l {
+  background-image: url(../src/assets/img/cardlist/condition.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-image-l1 {
   background-image: url(../src/assets/img/cardlist/0-3.png);
   background-repeat: no-repeat;
   background-size: cover;

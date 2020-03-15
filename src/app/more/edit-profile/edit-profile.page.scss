@@ -27,9 +27,13 @@ ion-datetime{
     text-align: center;
 }
 
-ion-row{
-    height: 1%;
-}
+
 ion-card{
     height: 30px;
+}
+
+ion-col{
+    min-height: 50px;
+    max-height: 50px;
+
 }

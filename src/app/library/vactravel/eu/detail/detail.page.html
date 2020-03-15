@@ -1,11 +1,7 @@
 <ion-header>
   <ion-toolbar class="toolbarColor">
     <ion-label style="padding-left: 5%;">
-      {{ VacHeadTH }}
-    </ion-label>
-    <br />
-    <ion-label style="padding-left: 5%;">
-      ({{ VacHeadEN }})
+      {{ VacHeadTH }} ({{ VacHeadEN }})
     </ion-label>
   </ion-toolbar>
 </ion-header>
@@ -19,7 +15,7 @@
         </p>
       </ion-col>
       <ion-col>
-        <ion-img src=".././assets/img/vaccine/{{ VacHeadEN }}.png" style="height: 150px; padding-top: 30px;"></ion-img>
+        <ion-img src=".././assets/img/vaccine/{{ VacHeadEN }}.png" style="height: 160px; padding-top: 30px;"></ion-img>
       </ion-col>
     </ion-row>
     <ion-badge>การฉีด</ion-badge>
@@ -52,19 +48,19 @@
 
     <ion-card *ngIf="Cost2">
       <ion-row>
-        <ion-col style="background-color:#EC9973; color: white;" class="labelH">
+        <ion-col style="background-color:#F9864E; color: white;" class="labelH">
           เอกชน
         </ion-col>
-        <ion-col style="background-color:#DB865F; color: white;" class="labelH">
+        <ion-col style="background-color:#E3723B; color: white;" class="labelH">
           รัฐบาล
         </ion-col>
       </ion-row>
 
       <ion-row>
-        <ion-col style="background-color:#EC9973; color: white;" class="labelH">
+        <ion-col style="background-color:#F9864E; color: white;" class="labelH">
           {{ Cost1 }}
         </ion-col>
-        <ion-col style="background-color:#DB865F; color: white;" class="labelH">
+        <ion-col style="background-color:#E3723B; color: white;" class="labelH">
           {{ Cost2 }}
         </ion-col>
       </ion-row>

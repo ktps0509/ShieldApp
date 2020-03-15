@@ -1,3 +1,9 @@
 ion-item{
     font-family: 'Prompt'
 }
+
+ion-content {
+    --background: url('/src/assets/img/menu/data_bg.png') no-repeat 100% 100%;
+    background-position-y: bottom;
+  }
+  
