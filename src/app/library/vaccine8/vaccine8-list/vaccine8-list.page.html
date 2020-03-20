@@ -1,13 +1,14 @@
 <ion-header>
-  <ion-title>
-    ข้อมูลวัคซีน
-  </ion-title>
+  <ion-toolbar>
+    <ion-title>
+      ข้อมูลวัคซีน
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
-
 
 <ion-content class="bg-image-l">
 <br />
-<ion-label class="text-head-list"> {{ VacType }}</ion-label>
+<ion-label class="text-head-list">ผู้หญิงตั้งครรภ์</ion-label>
 
 <ion-list>
   <ion-card class="card-list" *ngFor="let item of VacList" (click)="View(item.vaccode)">

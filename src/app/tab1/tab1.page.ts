@@ -75,9 +75,7 @@ export class Tab1Page {
   }
 
   GetVacHistory(uid) {
-    console.log(uid, "UID")
    return this.VacService.GetHistoryVaccine(uid).subscribe((data) => {  
-      console.log(data.data, "VacHis")
       this.VacArray = data.data
     })
 
@@ -99,7 +97,6 @@ export class Tab1Page {
           let Month = parseInt(DateTime[1]) - 1;
           let Day = parseInt(DateTime[2]);
 
-          console.log(Year, Month, Day, "จะฉีดยาละน้าาา")
           
 
 
@@ -115,13 +112,6 @@ export class Tab1Page {
 
 
     }
-    console.log(new Date(new Date(2020, 2, 8, 2, 13, 0).getTime()), "DateDATE")
-    console.log(new Date(new Date().getTime()), "dddededede")
-
-
-
-
-
   }
 
   async presentLoading() {

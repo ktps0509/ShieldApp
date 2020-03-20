@@ -61,9 +61,7 @@ export class LoginPage implements OnInit {
     this.LoginUser.password = this.LoginForm.controls.Password.value;
 
     return this.VacService.LoginAPI(this.LoginUser).subscribe((data) => {
-      // console.log(data);
       if (data.login == true) {
-        console.log(data.data[0], "ABCDEFG");
         const result = this.afAuth.auth.signInWithEmailAndPassword(data.data[0].email, data.data[0].password)
         if (result) {
           this.loading.dismiss();
@@ -73,7 +71,6 @@ export class LoginPage implements OnInit {
         }
         else {
           this.loading.dismiss();
-          console.log(data.message)
 
         }
 
@@ -81,7 +78,6 @@ export class LoginPage implements OnInit {
       else {
         this.loading.dismiss();
         this.presentAlert(data.message)
-        console.log(data.message)
       }
     })
 

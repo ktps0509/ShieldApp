@@ -33,6 +33,11 @@ export class MorePage implements OnInit {
     this.router.navigate(['tabs/more/edit-profile']);
   }
 
+  About() {
+    this.loadingService.show("Loading");
+    this.router.navigate(['tabs/more/aboutapp']);
+  }
+
   LogOut() {
     this.loadingService.show("Sign Out");
     this.afAuth.auth.signOut();

@@ -35,6 +35,7 @@ export class CalendarPage implements OnInit {
 
   User: UserGet;
   DateModel = []
+  VacShow: any = [];
 
   VacArray: any;
   DateVac: [];
@@ -118,22 +119,25 @@ export class CalendarPage implements OnInit {
     if (ev.events.length >= 1) {
       let selected = new Date(ev.selectedTime);
       let DateConvert = moment(selected).format('YYYY-MM-DD');
-      console.log(DateConvert, "eieieieieie")
 
       this.User = Object.assign({});
       this.User.email = this.email
       this.User.vacdate = DateConvert;
-      console.log(this.User, "PPPOOOO")
 
       this.VacService.GetHistoryByDate(this.User).subscribe((data) => {
-        console.log(data.message[0])
+        // console.log(data.message,"asdsad");
+        this.VacShow = data.message;
 
-        this.VacDetail = data.message[0];
-        console.log(this.VacDetail, "Detail na")
-        let vacnameth = data.message[0].vacnameth;
-        let vacnameen = data.message[0].vacnameen;
-        let vacdate = data.message[0].vacdate;
-        let vactime = data.message[0].time;
+        // for (let i = 0; i < this.VacShow.length; i++) {
+
+        // }
+
+        // this.VacDetail = data.message[0];
+        // console.log(this.VacDetail, "Detail na")
+        // let vacnameth = data.message[0].vacnameth;
+        // let vacnameen = data.message[0].vacnameen;
+        // let vacdate = data.message[0].vacdate;
+        // let vactime = data.message[0].time;
       })
     }
   }
