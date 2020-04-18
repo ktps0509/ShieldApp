@@ -114,7 +114,9 @@ export class CalendarPage implements OnInit {
 
   onTimeSelected(ev) {
 
-    this.VacDetail = null;
+    this.loadingService.show("Waiting...");
+
+    this.VacShow = null;
 
     if (ev.events.length >= 1) {
       let selected = new Date(ev.selectedTime);
@@ -140,5 +142,6 @@ export class CalendarPage implements OnInit {
         // let vactime = data.message[0].time;
       })
     }
+    this.loadingService.hide();
   }
 }

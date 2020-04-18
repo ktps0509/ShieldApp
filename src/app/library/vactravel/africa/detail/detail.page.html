@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="toolbarColor">
-    <ion-label style="padding-left: 5%;">
+    <ion-label>
       {{ VacHeadTH }} ({{ VacHeadEN }})
     </ion-label>
   </ion-toolbar>
@@ -61,6 +61,20 @@
         </ion-col>
         <ion-col style="background-color:#E3723B; color: white;" class="labelH">
           {{ Cost2 }}
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card *ngIf="Cost3">
+      <ion-row>
+        <ion-col style="background-color:#F9864E; color: white;" class="labelH">
+          สำนักงานสาธารณสุข
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col style="background-color:#F9864E; color: white;" class="labelH">
+          {{ Cost3 }}
         </ion-col>
       </ion-row>
     </ion-card>

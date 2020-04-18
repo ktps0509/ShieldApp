@@ -37,7 +37,8 @@ const routes: Routes = [
   },
   {
     path: 'introduce',
-    loadChildren: () => import('./introduce/introduce.module').then( m => m.IntroducePageModule)
+    loadChildren: () => import('./introduce/introduce.module').then( m => m.IntroducePageModule),
+    // canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToHome }
   },
 
  

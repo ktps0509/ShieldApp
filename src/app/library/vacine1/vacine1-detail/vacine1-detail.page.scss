@@ -20,10 +20,11 @@ ion-badge{
     font-size: 16px;
     color: white;
     font-family: 'Prompt';
-    padding-left: 5%;
+    padding-left: 3% !important;
+    font-weight: bold;
   }
 
   ion-content {
-    --background: #DB865F ;
+    --background: #D2754B ;
     background-position-y: bottom;
   }

@@ -12,6 +12,7 @@ import { StorageService } from '../service/storage.service';
 })
 
 export class IntroducePage implements OnInit {
+  FirstTime : number = 0;
   counter = 0;
   @ViewChild('slider', { static: true }) slid: IonSlides;
 
@@ -84,13 +85,24 @@ export class IntroducePage implements OnInit {
   };
 
   ngOnInit() {
+    if(this.FirstTime != 0 )
+    {
+      this.router.navigate(['/login']);
+    }
   }
 
   ionViewWillEnter() {
-    if (this.counter > 0) {
-      this.slidesDidLoad(this.slid);
+    if(this.FirstTime == 0 )
+    {
+      if (this.counter > 0) {
+        this.slidesDidLoad(this.slid);
+      }
+      this.counter++;
     }
-    this.counter++;
+    else{
+      this.router.navigate(['/login']);
+    }
+    
   }
 
   clickToFinished() {
@@ -99,9 +111,11 @@ export class IntroducePage implements OnInit {
     // the app's not return initail platform (in case users not close the app)
     // We need to set an initail default language. :: Best 27/01/2020
     this.storage.set('isComplete', true).then(() => {
+      this.FirstTime = 1;
       this.loadingService.hide();
       this.router.navigate(['/login']);
     });
+    
   }
 
   slidesDidLoad(slides: IonSlides) {

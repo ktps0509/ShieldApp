@@ -74,7 +74,6 @@ export class Vaccine7DetailPage implements OnInit {
             this.Cost1 = "ราคาเข็มละ 2,000 – 3,000บาท";
             this.Cost2 = "ราคา 3,000 – 4,500 บาท";
           }
-          
         },
         error => {
         });

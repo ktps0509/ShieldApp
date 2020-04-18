@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="toolbarColor">
-    <ion-label style="padding-left: 5%;">
+    <ion-label>
       {{ VacHeadTH }} ({{ VacHeadEN }})
     </ion-label>
   </ion-toolbar>
@@ -11,7 +11,8 @@
   <ion-grid>
     <ion-row>
       <ion-col size=8>
-        <p class="labelH">&nbsp;&nbsp;&nbsp;{{ Descript }}
+        <p class="labelH">&nbsp;&nbsp;&nbsp;{{ Descript }}<br/>
+          <ion-label *ngIf="Descript2"><br/>&nbsp;&nbsp;&nbsp;{{ Descript2 }}<br/><br/>&nbsp;&nbsp;&nbsp;{{ Descript3 }}</ion-label>
         </p>
       </ion-col>
       <ion-col>
