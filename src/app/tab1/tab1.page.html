@@ -16,7 +16,9 @@
       <ion-col>
         <ion-card-header>
 
-          <ion-label class="LabelH">{{ Name }} {{ Surname }}</ion-label>
+          <ion-label class="LabelH">{{ Name }}</ion-label><br />
+          <ion-label class="LabelH">{{ Surname }}</ion-label>
+
 
         </ion-card-header>
 
@@ -29,8 +31,8 @@
 
           <br/>
           <br/>
-          <ion-label class="LabelD" *ngIf="Sick">โรคประจำตัว : {{ Sick }} </ion-label><br/>
-          <ion-label class="LabelD" *ngIf="Medic">แพ้ยา : {{ Medic }} </ion-label>
+          <ion-label class="LabelD" *ngIf="Sick">โรคประจำตัว: {{ Sick }} </ion-label><br/>
+          <ion-label class="LabelD" *ngIf="Medic">แพ้ยา: {{ Medic }} </ion-label>
 
 
         </ion-card-content>
@@ -54,8 +56,7 @@
             <ion-grid style="text-align: left; padding: 20px;">
               <ion-row>
                 <ion-col size=8>
-                  <ion-label class="LabelHC">{{ item.vacnameth }}</ion-label><br />
-                  <ion-label class="LabelHC">({{ item.vacnameen }})</ion-label><br />
+                  <ion-label class="LabelHC">{{ item.vacnameth }} ({{ item.vacnameen }})</ion-label><br />
                   <ion-label class="LabelDC">ฉีดครั้งล่าสุด: </ion-label>
                   <ion-label class="LabelDC">{{ item.start_date }}</ion-label><br />
                   <ion-label class="LabelDC">{{ item.hospital }}</ion-label>
