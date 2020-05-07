@@ -85,14 +85,19 @@ export class IntroducePage implements OnInit {
   };
 
   ngOnInit() {
-    if(this.FirstTime != 0 )
-    {
-      this.router.navigate(['/login']);
-    }
+    // if(this.FirstTime != 0 )
+    // {
+    //   this.router.navigate(['/login']);
+    // }
   }
 
   ionViewWillEnter() {
-    if(this.FirstTime == 0 )
+
+    var aaa = this.storage.get('isComplete');
+
+    console.log(aaa, "AAAAA")
+
+    if(!aaa)
     {
       if (this.counter > 0) {
         this.slidesDidLoad(this.slid);

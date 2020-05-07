@@ -88,30 +88,29 @@ export class Register2Page implements OnInit {
     this.LoginUser.password = this.UserAccount.password;
 
 
-    console.log(this.LoginUser, "ALL")
     try {
-      const res = await this.afAuth.auth.createUserWithEmailAndPassword(this.UserAccount.email, this.UserAccount.password)
-      console.log(res, "check sameeeeeeeeeeeeeeeee");
-
+      // const res = await this.afAuth.auth.createUserWithEmailAndPassword(this.UserAccount.email, this.UserAccount.password)
       let dt = "";
-      console.log(this.UserAccount, "เหลือศูนย์ได้ไงวะ")
-      if (res.user) {
+      // if (res.user) {
         await this.VacService.Register(this.UserAccount).subscribe(async (data) => {
           if (data) {
             dt = data.statuscode;
+          this.presentAlert("Sign Up Successfully")
+          this.loadingService.hide();
+            this.router.navigate(['/login']);
           }
-          console.log(dt, "check DT")
-          await this.VacService.LoginAPI(this.LoginUser).subscribe((data2) => {
-            this.storage.set('User', data2.data[0]).then(() => {
-              // this.loading.dismiss();
-              this.router.navigate(['/tabs/tab1']);
+          // console.log(dt, "check DT")
+          // await this.VacService.LoginAPI(this.LoginUser).subscribe((data2) => {
+          //   this.storage.set('User', data2.data[0]).then(() => {
+          //     // this.loading.dismiss();
+          //     this.router.navigate(['/tabs/tab1']);
 
-            });
-            console.log(data2, "DATA ON LOGIN");
-          })
+          //   });
+          //   console.log(data2, "DATA ON LOGIN");
+          // })
         })
 
-      }
+      // }
 
     }
     catch(error){
@@ -124,7 +123,7 @@ export class Register2Page implements OnInit {
   createForm() {
     this.UserAccountForm = this.fb.group({
       Email: ['', [Validators.required, Validators.email]],
-      Password: ['', [Validators.required, Validators.maxLength(6)]],
+      Password: ['', [Validators.required, Validators.minLength(6)]],
       Password2: ['', Validators.required],
     })
 
